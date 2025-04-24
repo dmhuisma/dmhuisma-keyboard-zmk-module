@@ -5,7 +5,17 @@ This is my ZMK module for the split keyboard I generated with the [Cosmos keyboa
 The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:CtgBChUSBRCAbyAnEgASABIAOB5AgIaLoAIKGxIFEIBjICcSABIAEgMQsDsSAxCwazgKQIDgTQodEgUQgFcgJxIAEgASAxCwLxIDELBfOAlAgICKiAMKDxIFEIBLICcSABIAEgA4HQoPEgUQgD8gJxIAEgASADgxCigSEhBAICdAqI6HmAZIs5H0vOHQARIOCBNAk/YWSLmdlK3hvgUwHThFCigSCCAnYgRURVJNEgMQkHcSBBCgzgoSCRAwYgVTSElGVDgyQICGi6ACGABArpCX+CpI0oeA1qAPCpwBCn0SGAiAMBDAgAIYACAAQIuF2JYQSI2FgMDdDRIYCJawggEQQCAAQN6DsLSADEjVl8zt4NcFEg8gAECthdwDSJmJhJ7g3BASECAAQOKD2NABSOmTnJeg8BESDyAAQM/ijzhIg4+cl6C9EhIRIABA8IW8l7ABSOGdzI3A2BI4ABgCIgoIyAEQyAEYACAAQNeRzKzwM0imqeDG8LMICs0BChUSBRCAAyAnEgASABIAOB1AgIaLoAIKFRIFEIAPICcSABIAEgASADgJQIDgTQoXEgUQgBsgJxIAEgASABIAOApAgICKiAMKDxIFEIAnICcSABIAEgA4HgoPEgUQgDMgJxIAEgASADgyCikSEhBAICdAp46HmAZIs5H4vNHQARIPCBtAgKqO+ARIpZHQvYF2MB04RgooEgcgJ2IDRVNDEgQQkMABEgQQoIAKEgkQMGIFU0hJRlQ4MUCAhougAhgBQK2Ql/gqSNKH/NWQDwq4AQqYARIVCBwQQCAAQISF0JawDEjBh4y8gNkfEhgIgDAgAECZ+JYISISPgLCsAWIFU3BhY2USGBBAIABAroXcA0iZiYie0NwQYgVNT1VTRRIXEEAgAEDhg9jQAUjpk6CXkPARYgNUQUISFxBAIABA0OKPOEiDj6CXkL0SYgRNRVRBEhcQQCAAQO+FvJewAUiFn9CNsNgSYgJGTjgAGAMiCgjIARDIARgAIABA2JHMrPAzSKap3MaAtAgYjaACggEBAlhIYANoAHIGKEY4CkAyeJO6x+gB). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board.
 
 ## Features
-- TODO
+- Ergonomic
+    - Split
+    - Concave key well
+    - Thumb clusters
+    - Staggered to accommodate my hand/finger sizes
+- Wireless
+- Trackball mouse movement
+- Displays
+- Hotswappable keys
+- Multiple potentiometers (one with directional clicking) for media controls, mouse scrolling, etc.
+- Dpad for cursor navigation or gaming
 
 ## TODO
 
@@ -28,7 +38,7 @@ The firmware is built by Github actions on every commit. It can also be built wi
 
 ## Pinout
 
-This keyboard uses the [https://nicekeyboards.com/nice-nano/](nice!nano V2) on each side. However, there is not enough GPIO pins for this keyboard, so it also uses an MCP23017 GPIO expander.
+This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on each side. However, there is not enough GPIO pins for this keyboard, so it also uses an MCP23017 GPIO expander.
 
 ### Left Keyboard
 
