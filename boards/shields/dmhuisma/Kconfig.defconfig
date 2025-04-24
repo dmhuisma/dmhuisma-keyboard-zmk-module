@@ -1,0 +1,17 @@
+if SHIELD_DMHUISMA_LEFT
+
+# Name must be less than 16 characters long!
+config ZMK_KEYBOARD_NAME
+    default "Dmhuisma KB"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_DMHUISMA_LEFT || SHIELD_DMHUISMA_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif
