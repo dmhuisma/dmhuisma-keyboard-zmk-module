@@ -1,6 +1,8 @@
 # Dmhuisma Keyboard ZMK Module
 
-This is my ZMK module for the split keyboard I generated with the [Cosmos keyboard generator](https://ryanis.cool/cosmos/).
+This is my ZMK module for the split keyboard I generated with the [Cosmos keyboard generator](https://ryanis.cool/cosmos/). This is still a work in progress and completely untested because the keyboard not been built yet.
+
+![Cosmos Keyboard Screenshot](assets/cosmos_keyboard_screenshot.png)
 
 The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:CtgBChUSBRCAbyAnEgASABIAOB5AgIaLoAIKGxIFEIBjICcSABIAEgMQsDsSAxCwazgKQIDgTQodEgUQgFcgJxIAEgASAxCwLxIDELBfOAlAgICKiAMKDxIFEIBLICcSABIAEgA4HQoPEgUQgD8gJxIAEgASADgxCigSEhBAICdAqI6HmAZIs5H0vOHQARIOCBNAk/YWSLmdlK3hvgUwHThFCigSCCAnYgRURVJNEgMQkHcSBBCgzgoSCRAwYgVTSElGVDgyQICGi6ACGABArpCX+CpI0oeA1qAPCpwBCn0SGAiAMBDAgAIYACAAQIuF2JYQSI2FgMDdDRIYCJawggEQQCAAQN6DsLSADEjVl8zt4NcFEg8gAECthdwDSJmJhJ7g3BASECAAQOKD2NABSOmTnJeg8BESDyAAQM/ijzhIg4+cl6C9EhIRIABA8IW8l7ABSOGdzI3A2BI4ABgCIgoIyAEQyAEYACAAQNeRzKzwM0imqeDG8LMICs0BChUSBRCAAyAnEgASABIAOB1AgIaLoAIKFRIFEIAPICcSABIAEgASADgJQIDgTQoXEgUQgBsgJxIAEgASABIAOApAgICKiAMKDxIFEIAnICcSABIAEgA4HgoPEgUQgDMgJxIAEgASADgyCikSEhBAICdAp46HmAZIs5H4vNHQARIPCBtAgKqO+ARIpZHQvYF2MB04RgooEgcgJ2IDRVNDEgQQkMABEgQQoIAKEgkQMGIFU0hJRlQ4MUCAhougAhgBQK2Ql/gqSNKH/NWQDwq4AQqYARIVCBwQQCAAQISF0JawDEjBh4y8gNkfEhgIgDAgAECZ+JYISISPgLCsAWIFU3BhY2USGBBAIABAroXcA0iZiYie0NwQYgVNT1VTRRIXEEAgAEDhg9jQAUjpk6CXkPARYgNUQUISFxBAIABA0OKPOEiDj6CXkL0SYgRNRVRBEhcQQCAAQO+FvJewAUiFn9CNsNgSYgJGTjgAGAMiCgjIARDIARgAIABA2JHMrPAzSKap3MaAtAgYjaACggEBAlhIYANoAHIGKEY4CkAyeJO6x+gB). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board.
 
@@ -20,7 +22,7 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
 ## TODO
 
 - finish ZMK module, lots of it is currently placeholder
-- features list
+- document keymap
 - add image of finished keyboard
 - update cosmos link with final config
 
@@ -28,9 +30,13 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
 
 The firmware is built by Github actions on every commit. It can also be built with a local install of ZMK with the following commands.
 
-> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module" -DSHIELD=dmhuisma_left
+> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module" -DSHIELD="dmhuisma_left nice_view"
 
-> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module" -DSHIELD=dmhuisma_right
+> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to zmk-pmw3610-driver]/zmk-pmw3610-driver" -DSHIELD="dmhuisma_right nice_view"
+
+If building locally, the following external zmk modules are required on your machine:
+
+- [zmk-pmw3610-driver](https://github.com/badjeff/zmk-pmw3610-driver) (for the right side only)
 
 ## Keyscan Matrix
 
