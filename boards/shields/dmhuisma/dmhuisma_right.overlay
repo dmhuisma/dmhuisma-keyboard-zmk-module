@@ -1,5 +1,13 @@
 #include "dmhuisma.dtsi" // The shared dtsi file is included in the overlay
 
+// layers, duplicate from the keymap
+#define DEFAULT         0
+#define FUNCTION        1
+#define MOUSE           2
+#define MS              2
+#define MOUSE_SCROLL    3
+#define MSS             3
+
 &default_transform { // Offset of 3 because the left side has 3 columns
     col-offset = <6>;
 };
@@ -76,6 +84,8 @@
 };
 
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/input_transform.h>
+#include <input/processors.dtsi>
 
 &spi1 {
     status = "okay";
@@ -107,5 +117,16 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        input-processors = <&zip_xy_swap_mapper>;
+
+        default {
+            layers = <MOUSE>;
+            process-next;
+        };
+        scroll {
+            layers = <MOUSE_SCROLL>;
+            input-processors = <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_swap_mapper>, <&zip_xy_scaler 1 10>, <&zip_xy_to_scroll_mapper>;
+            process-next;
+        };
     };
 };

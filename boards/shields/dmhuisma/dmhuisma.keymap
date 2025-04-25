@@ -5,12 +5,13 @@
 #define DEFAULT         0
 #define FUNCTION        1
 #define MOUSE           2
+#define MS              2
+#define MOUSE_SCROLL    3
+#define MSS             3
 
 / {
     keymap {
         compatible = "zmk,keymap";
-
-        // TODO - layer modifiers
 
         default_layer {     // Layer 0
             bindings = <
@@ -21,7 +22,7 @@
                                                 &kp MINUS       &kp EQUAL                                                                                                               &kp LBKT        &kp RBKT
 
                                                                                 &kp SPACE                                                                               &kp ENTER
-                                                                                                &mo MOUSE       &kp LEFT_META           &kp LCTRL       &kp BACKSPACE
+                                                                                                &mo_tog MSS MS  &kp LEFT_META           &kp LCTRL       &kp BACKSPACE
                                                                                                 &kp TAB         &mo FUNCTION            &none           &none
             >;
         };
@@ -52,6 +53,32 @@
                                                                                                 &trans          &trans                  &trans          &trans
                                                                                                 &trans          &trans                  &trans          &trans
             >;
+        };
+
+        mouse_scroll_layer {    // Layer 3
+            bindings = <
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                                                &trans          &trans                                                                                                                  &trans          &trans
+
+                                                                                &trans                                                                                  &trans
+                                                                                                &trans          &trans                  &trans          &trans
+                                                                                                &trans          &trans                  &trans          &trans
+            >;
+        };
+    };
+
+    // custom behaviour for a layer tap feature that changes layers when both held and tapped
+    // momentary - toggle
+    behaviors {
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
         };
     };
 };
