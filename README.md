@@ -133,8 +133,8 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D21]** P0.31 (ADC)  ||
 |**[D20]** P0.29 (ADC)  ||
 |**[D19]** P0.02 (ADC)  ||
-|**[D18]** P1.15        ||
-|**[D15]** P1.13        ||
+|**[D18]** P1.15        |PMW3610 CS|
+|**[D15]** P1.13        |PMW3610 IRQ|
 |**[D14]** P1.11        |EVQWGD001 Encoder A|
 |**[D16]** P0.10        |EVQWGD001 Encoder B|
 |**[D10]** P0.09        |EVQWGD001 Button|
