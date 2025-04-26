@@ -24,6 +24,10 @@
                                                                                 &kp SPACE                                                                               &kp ENTER
                                                                                                 &mo_tog MSS MS  &kp LEFT_META           &kp LCTRL       &kp BACKSPACE
                                                                                                 &kp TAB         &mo FUNCTION            &none           &none
+            
+                                                                                                &kp UP_ARROW
+                                                                                &kp LEFT_ARROW  &trans          &kp RIGHT_ARROW
+                                                                                                &kp DOWN_ARROW
             >;
         };
 
@@ -38,6 +42,10 @@
                                                                                 &trans                                                                                  &trans
                                                                                                 &trans          &trans                  &trans          &trans
                                                                                                 &trans          &trans                  &trans          &trans
+            
+                                                                                                &trans
+                                                                                &trans          &trans          &trans
+                                                                                                &trans
             >;
         };
 
@@ -52,6 +60,10 @@
                                                                                 &trans                                                                                  &trans
                                                                                                 &trans          &trans                  &trans          &trans
                                                                                                 &trans          &trans                  &trans          &trans
+            
+                                                                                                &trans
+                                                                                &trans          &trans          &trans
+                                                                                                &trans
             >;
         };
 
@@ -66,6 +78,10 @@
                                                                                 &trans                                                                                  &trans
                                                                                                 &trans          &trans                  &trans          &trans
                                                                                                 &trans          &trans                  &trans          &trans
+            
+                                                                                                &trans
+                                                                                &trans          &trans          &trans
+                                                                                                &trans
             >;
         };
     };
