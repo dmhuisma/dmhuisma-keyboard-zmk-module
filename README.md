@@ -104,10 +104,10 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |PB1                    |Column 4|
 |PB2                    |Column 5|
 |PB3                    |Column 6|
-|PB4                    ||
-|PB5                    ||
-|PB6                    ||
-|PB7                    ||
+|PB4                    |RKJXT1F42001 up|
+|PB5                    |RKJXT1F42001 down|
+|PB6                    |RKJXT1F42001 left|
+|PB7                    |RKJXT1F42001 right|
 
 ### Right Keyboard
 

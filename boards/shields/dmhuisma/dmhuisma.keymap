@@ -5,9 +5,9 @@
 #define DEFAULT         0
 #define FUNCTION        1
 #define MOUSE           2
-#define MS              2
+#define MS              MOUSE
 #define MOUSE_SCROLL    3
-#define MSS             3
+#define MSS             MOUSE_SCROLL
 
 / {
     keymap {
@@ -28,7 +28,15 @@
                                                                                                 &kp UP_ARROW
                                                                                 &kp LEFT_ARROW  &trans          &kp RIGHT_ARROW
                                                                                                 &kp DOWN_ARROW
+
+                                                                                                &kp K_MUTE
+                                                                                &kp K_PREVIOUS                  &kp K_NEXT
+                                                                                                &kp K_PLAY_PAUSE
+                                            
+                                                                                                                                        &kp K_MUTE
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         function_layer {    // Layer 1
@@ -46,7 +54,15 @@
                                                                                                 &trans
                                                                                 &trans          &trans          &trans
                                                                                                 &trans
+
+                                                                                                &trans
+                                                                                &trans                          &trans
+                                                                                                &trans
+                                            
+                                                                                                                                        &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         mouse_layer {       // Layer 2
@@ -64,7 +80,15 @@
                                                                                                 &trans
                                                                                 &trans          &trans          &trans
                                                                                                 &trans
+
+                                                                                                &trans
+                                                                                &trans                          &trans
+                                                                                                &trans
+                                            
+                                                                                                                                        &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         mouse_scroll_layer {    // Layer 3
@@ -82,13 +106,22 @@
                                                                                                 &trans
                                                                                 &trans          &trans          &trans
                                                                                                 &trans
+
+                                                                                                &trans
+                                                                                &trans                          &trans
+                                                                                                &trans
+                                            
+                                                                                                                                        &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 
-    // custom behaviour for a layer tap feature that changes layers when both held and tapped
-    // momentary - toggle
     behaviors {
+
+        // custom behaviour for a layer tap feature that changes layers when both held and tapped
+        // momentary - toggle
         mo_tog: behavior_mo_tog {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
