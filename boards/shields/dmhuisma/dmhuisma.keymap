@@ -3,11 +3,16 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define DEFAULT         0
-#define FUNCTION        1
+#define RAISE           1
+#define FUNCTION        RAISE
 #define MOUSE           2
 #define MS              MOUSE
-#define MOUSE_SCROLL    3
+#define LOWER           3
+#define LW              LOWER
+#define MOUSE_SCROLL    LOWER
 #define MSS             MOUSE_SCROLL
+#define TRI_LAYER       4
+#define GAMING          TRI_LAYER
 
 / {
     keymap {
@@ -22,8 +27,8 @@
                                                 &kp MINUS       &kp EQUAL                                                                                                               &kp LBKT        &kp RBKT
 
                                                                                 &kp SPACE                                                                               &kp ENTER
-                                                                                                &mo_tog MSS MS  &kp LEFT_META           &kp LCTRL       &kp BACKSPACE
-                                                                                                &kp TAB         &mo FUNCTION            &none           &none
+                                                                                                &mo_tog LW MS   &kp LEFT_META           &kp LALT        &mo RAISE
+                                                                                                &kp LCTRL       &kp TAB                 &kp DELETE      &kp BACKSPACE
             
                                                                                                 &kp UP_ARROW
                                                                                 &kp LEFT_ARROW  &trans          &kp RIGHT_ARROW
@@ -33,10 +38,10 @@
                                                                                 &kp K_PREVIOUS                  &kp K_NEXT
                                                                                                 &kp K_PLAY_PAUSE
                                             
-                                                                                                                                        &kp K_MUTE
+                                                                                                                                        &mkp MCLK
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp SCRL_UP SCRL_DOWN>;
         };
 
         function_layer {    // Layer 1
@@ -48,7 +53,7 @@
                                                 &trans          &trans                                                                                                                  &trans          &trans
 
                                                                                 &trans                                                                                  &trans
-                                                                                                &trans          &trans                  &trans          &trans
+                                                                                                &to TRI_LAYER   &trans                  &trans          &trans
                                                                                                 &trans          &trans                  &trans          &trans
             
                                                                                                 &trans
@@ -62,7 +67,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp SCRL_UP SCRL_DOWN>;
         };
 
         mouse_layer {       // Layer 2
@@ -88,7 +93,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp SCRL_UP SCRL_DOWN>;
         };
 
         mouse_scroll_layer {    // Layer 3
@@ -100,7 +105,7 @@
                                                 &trans          &trans                                                                                                                  &trans          &trans
 
                                                                                 &trans                                                                                  &trans
-                                                                                                &trans          &trans                  &trans          &trans
+                                                                                                &trans          &trans                  &trans          &to TRI_LAYER
                                                                                                 &trans          &trans                  &trans          &trans
             
                                                                                                 &trans
@@ -114,7 +119,35 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp SCRL_UP SCRL_DOWN>;
+        };
+
+        // a layer of seldom used keys (in the context of gaming) to be remapped in software per game, so that the keyboard is still functional while playing games by switching back to the default layer
+        // I use input-remapper, and in gaming profiles I will set these keys by default to be ignored until set specifically by the game profile.
+        gaming_layer {    // Layer 4
+            bindings = <
+                &trans          &kp UP_ARROW    &kp DOWN_ARROW  &kp LEFT_ARROW  &kp RIGHT_ARROW &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &kp PAGE_UP     &kp F16         &kp F17         &kp F18         &kp F19         &kp F20                                                 &trans          &trans          &trans          &trans          &trans          &trans
+                &kp LEFT_ALT    &kp F10         &kp F11         &kp F12         &kp F13         &kp F14                                                 &trans          &trans          &trans          &trans          &trans          &trans
+                &kp PAGE_DOWN   &kp F21         &kp F22         &kp F23         &kp F24         &kp LBKT                                                &trans          &trans          &trans          &trans          &trans          &trans
+                                                &kp RBKT        &kp BACKSLASH                                                                                                           &trans          &trans
+
+                                                                                &kp F5                                                                                  &trans
+                                                                                                &kp F6          &kp F7                  &trans          &trans
+                                                                                                &kp F8          &kp F9                  &trans          &trans
+            
+                                                                                                &kp F1
+                                                                                &kp F3          &kp RIGHT_ALT   &kp F4
+                                                                                                &kp F2
+
+                                                                                                &trans
+                                                                                &trans                          &trans
+                                                                                                &trans
+                                            
+                                                                                                                                        &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp SCRL_UP SCRL_DOWN>;
         };
     };
 
@@ -130,4 +163,16 @@
             bindings = <&mo>, <&tog>;
         };
     };
+
+    // go to tri layer (gaming) if both lower (mouse scroll) and raise (function) layers are activated.
+    // Actually, this is not used because it would cause the tri-layer to get deactivated once one of the activation layers are deactivated.
+    // I want it to toggle the tri-layer, not momentarily activate it. Instead I will activate via keys in each of the activation layers manually.
+
+    // conditional_layers {
+    //     compatible = "zmk,conditional-layers";
+    //     tri_layer {
+    //         if-layers = <LOWER RAISE>;
+    //         then-layer = <TRI_LAYER>;
+    //     };
+    // };
 };
