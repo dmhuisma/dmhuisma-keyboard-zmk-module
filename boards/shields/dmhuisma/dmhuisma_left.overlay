@@ -14,32 +14,6 @@
         };
     };
 
-    // key matrix
-    kscan1: kscan1 {
-        compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row";
-        wakeup-source;
-        status = "okay";
-        col-gpios
-            = <&mcp_io 0 GPIO_ACTIVE_HIGH>
-            , <&mcp_io 1 GPIO_ACTIVE_HIGH>
-            , <&mcp_io 2 GPIO_ACTIVE_HIGH>
-            , <&mcp_io 3 GPIO_ACTIVE_HIGH>
-            , <&mcp_io 4 GPIO_ACTIVE_HIGH>
-            , <&mcp_io 5 GPIO_ACTIVE_HIGH>
-            ;
-
-        // might need to be pull down?
-        row-gpios
-            = <&mcp_io 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
-            , <&mcp_io 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
-            , <&mcp_io 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
-            , <&mcp_io 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
-            , <&mcp_io 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
-            , <&mcp_io 11 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
-            ;
-    };
-
     // dpad and RKJXT1F42001 buttons
     kscan2: kscan2 {
         compatible = "zmk,kscan-gpio-direct";
@@ -51,12 +25,13 @@
             , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 9 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
                 // RKJXT1F42001 buttons
-            , <&mcp_io 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
-            , <&mcp_io 13 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
-            , <&mcp_io 14 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
-            , <&mcp_io 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>
+            , <&mcp_io 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 17  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             ;
     };
 

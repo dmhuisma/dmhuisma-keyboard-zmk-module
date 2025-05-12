@@ -56,7 +56,7 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D0]** P0.08         |RKJXT1F42001 Encoder B|
 |GND                    |NiceView GND|
 |GND                    |MCP23017 GND|
-|**[D2]** P0.17         ||
+|**[D2]** P0.17         |RKJXT1F42001 center|
 |**[D3]** P0.20         |MCP23017 RESET|
 |**[D4]** P0.22         |MCP23017 SCL|
 |**[D5]** P0.24         |MCP23017 SDA|

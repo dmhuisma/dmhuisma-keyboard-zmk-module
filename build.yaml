@@ -26,3 +26,5 @@ include:
   - board: nice_nano_v2
     shield: dmhuisma_right nice_view
     artifact_name: dmhuisma_right
+  - board: nice_nano_v2
+    shield: settings_reset
