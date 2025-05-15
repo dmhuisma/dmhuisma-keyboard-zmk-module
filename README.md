@@ -4,7 +4,7 @@ This is my ZMK module for the split keyboard I generated with the [Cosmos keyboa
 
 ![Cosmos Keyboard Screenshot](assets/cosmos_keyboard_screenshot.png)
 
-The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:CtgBChUSBRCAbyAnEgASABIAOB5AgIaLoAIKGxIFEIBjICcSABIAEgMQsDsSAxCwazgKQIDgTQodEgUQgFcgJxIAEgASAxCwLxIDELBfOAlAgICKiAMKDxIFEIBLICcSABIAEgA4HQoPEgUQgD8gJxIAEgASADgxCigSEhBAICdAqI6HmAZIs5H0vOHQARIOCBNAk/YWSLmdlK3hvgUwHThFCigSCCAnYgRURVJNEgMQkHcSBBCgzgoSCRAwYgVTSElGVDgyQICGi6ACGABArpCX+CpI0oeA1qAPCpwBCn0SGAiAMBDAgAIYACAAQIuF2JYQSI2FgMDdDRIYCJawggEQQCAAQN6DsLSADEjVl8zt4NcFEg8gAECthdwDSJmJhJ7g3BASECAAQOKD2NABSOmTnJeg8BESDyAAQM/ijzhIg4+cl6C9EhIRIABA8IW8l7ABSOGdzI3A2BI4ABgCIgoIyAEQyAEYACAAQNeRzKzwM0imqeDG8LMICs0BChUSBRCAAyAnEgASABIAOB1AgIaLoAIKFRIFEIAPICcSABIAEgASADgJQIDgTQoXEgUQgBsgJxIAEgASABIAOApAgICKiAMKDxIFEIAnICcSABIAEgA4HgoPEgUQgDMgJxIAEgASADgyCikSEhBAICdAp46HmAZIs5H4vNHQARIPCBtAgKqO+ARIpZHQvYF2MB04RgooEgcgJ2IDRVNDEgQQkMABEgQQoIAKEgkQMGIFU0hJRlQ4MUCAhougAhgBQK2Ql/gqSNKH/NWQDwq4AQqYARIVCBwQQCAAQISF0JawDEjBh4y8gNkfEhgIgDAgAECZ+JYISISPgLCsAWIFU3BhY2USGBBAIABAroXcA0iZiYie0NwQYgVNT1VTRRIXEEAgAEDhg9jQAUjpk6CXkPARYgNUQUISFxBAIABA0OKPOEiDj6CXkL0SYgRNRVRBEhcQQCAAQO+FvJewAUiFn9CNsNgSYgJGTjgAGAMiCgjIARDIARgAIABA2JHMrPAzSKap3MaAtAgYjaACggEBAlhIYANoAHIGKEY4CkAyeJO6x+gB). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board.
+The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:Ct8BChUSBRCAbyAnEgASABIAOB5AgIaLoAIKHhIFEIBjICcSABIAEgMQsDsSAxCwazgKQIDITUi0AwogEgUQgFcgJxIAEgASAxCwLxIDELBfOAlAgOCHuAJItAMKDxIFEIBLICcSABIAEgA4HQoPEgUQgD8gJxIAEgASADgxCikSEhBAICdAqI6HmAZIs5H0vOHQARIPCBNAl+qWGEi5nZSt4b4FMB04RQooEgggJ2IEVEVSTRIDEJB3EgQQoM4KEgkQMGIFU0hJRlQ4MkCAhougAhgAQK6Ql/gqSN6HgPSgNQqaAQp7EhYIgDAQwIACIABAi4XYlhBIjYWAwN0NEhgIloCCARBAIABAioXwtOANSJWn/MTgtQUSDyAAQK2F3ANImYmEnuDcEBIQIABA4oPY0AFI6ZOcl6DwERIPIABAz+KPOEiDj5yXoL0SEhEgAEDwhbyXsAFI4Z3MjcDYEjgAGAIiCgjIARDIARgAIABA15HMrPAzSKap4MbwswgK0wEKFRIFEIADICcSABIAEgA4HUCAhougAgoYEgUQgA8gJxIAEgASABIAOAlAgMhNSLQDChoSBRCAGyAnEgASABIAEgA4CkCA4Ie4Aki0AwoPEgUQgCcgJxIAEgASADgeCg8SBRCAMyAnEgASABIAODIKKRISEEAgJ0CnjoeYBkizkfi80dABEg8IG0CAqo74BEilkdC9gXYwHThGCigSByAnYgNFU0MSBBCQwAESBBCggAoSCRAwYgVTSElGVDgxQICGi6ACGAFArZCX+CpI3of875A1CrgBCpgBEhUIHBBAIABA2IOglcAMSM6DuI6g1QESGAiAMCAAQJn4lghIhI+AsKwBYgVTcGFjZRIYEEAgAECuhdwDSJmJiJ7Q3BBiBU1PVVNFEhcQQCAAQOGD2NABSOmToJeQ8BFiA1RBQhIXEEAgAEDQ4o84SIOPoJeQvRJiBE1FVEESFxBAIABA74W8l7ABSIWf0I2w2BJiAkZOOAAYAyIKCMgBEMgBGAAgAEDYkcys8DNIpqncxoC0CBiNICIFIKALKBwwHoIBAQNYSGADchYoMjgKQBRQqgZY4gmIAeIJYIQHcNAFeKCN9I7xcQ==). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board.
 
 ## Features
 - Ergonomic
@@ -51,11 +51,11 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 #### Nice!Nano V2 Left Side GPIO
 |                       |                                               |
 |-----------------------|-----------------------------------------------|
-|GND                    |RKJXT1F42001 GND|
+|Battery-               ||
 |**[D1]** P0.06         |RKJXT1F42001 Encoder A|
 |**[D0]** P0.08         |RKJXT1F42001 Encoder B|
 |GND                    |NiceView GND|
-|GND                    |MCP23017 GND|
+|GND                    |MCP23017 GND, RKJXT1F42001 GND|
 |**[D2]** P0.17         |RKJXT1F42001 center|
 |**[D3]** P0.20         |MCP23017 RESET|
 |**[D4]** P0.22         |MCP23017 SCL|
@@ -114,11 +114,11 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 #### Nice!Nano V2 Left Side GPIO
 |                       |                                               |
 |-----------------------|-----------------------------------------------|
-|GND                    |PMW3610 GND|
-|**[D1]** P0.06         |PMW3610 MOSI|
-|**[D0]** P0.08         |PMW3610 MISO|
+|Battery+               ||
+|**[D1]** P0.06         ||
+|**[D0]** P0.08         |PMW3610 SDIO|
 |GND                    |NiceView GND|
-|GND                    |MCP23017 GND|
+|GND                    |MCP23017 GND, PMW3610 GND|
 |**[D2]** P0.17         |PMW3610 SCK|
 |**[D3]** P0.20         |MCP23017 RESET|
 |**[D4]** P0.22         |MCP23017 SCL|
@@ -140,7 +140,7 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |**[D20]** P0.29 (ADC)  ||
 |**[D19]** P0.02 (ADC)  ||
 |**[D18]** P1.15        |PMW3610 CS|
-|**[D15]** P1.13        |PMW3610 IRQ|
+|**[D15]** P1.13        |PMW3610 IRQ/MOT|
 |**[D14]** P1.11        |EVQWGD001 Encoder A|
 |**[D16]** P0.10        |EVQWGD001 Encoder B|
 |**[D10]** P0.09        |EVQWGD001 Button|

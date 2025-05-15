@@ -17,28 +17,25 @@
     // key matrix
     kscan1: kscan1 {
         compatible = "zmk,kscan-gpio-matrix";
-        diode-direction = "col2row";
+        diode-direction = "row2col";
         wakeup-source;
         status = "okay";
 
-        // the mcp23017 cannot do pull downs, so you must add them externally
-        // you might be able to figure out how to do it with pullups instead (which it does support),
-        // but I'm not sure 100% if its possible, I briefly tried it and the key matrix was inverted, so I went pulldowns instead.
         row-gpios
-            = <&mcp_io 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&mcp_io 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&mcp_io 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&mcp_io 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&mcp_io 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
-            , <&mcp_io 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            = <&mcp_io 0 (GPIO_ACTIVE_LOW)>
+            , <&mcp_io 1 (GPIO_ACTIVE_LOW)>
+            , <&mcp_io 2 (GPIO_ACTIVE_LOW)>
+            , <&mcp_io 3 (GPIO_ACTIVE_LOW)>
+            , <&mcp_io 4 (GPIO_ACTIVE_LOW)>
+            , <&mcp_io 5 (GPIO_ACTIVE_LOW)>
             ;
         col-gpios
-            = <&mcp_io 6  GPIO_ACTIVE_HIGH>
-            , <&mcp_io 7  GPIO_ACTIVE_HIGH>
-            , <&mcp_io 8  GPIO_ACTIVE_HIGH>
-            , <&mcp_io 9  GPIO_ACTIVE_HIGH>
-            , <&mcp_io 10 GPIO_ACTIVE_HIGH>
-            , <&mcp_io 11 GPIO_ACTIVE_HIGH>
+            = <&mcp_io 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 7  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 8  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             ;
     };
     
