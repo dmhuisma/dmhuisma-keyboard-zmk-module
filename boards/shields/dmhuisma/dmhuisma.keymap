@@ -43,7 +43,7 @@
                                                                                                                                         &mkp MCLK
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
         };
 
         function_layer {    // Layer 1
@@ -69,7 +69,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
         };
 
         mouse_layer {       // Layer 2
@@ -95,7 +95,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
         };
 
         mouse_scroll_layer {    // Layer 3, also functionally an alternate function layer
@@ -121,7 +121,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
         };
 
         // a layer of seldom used keys (in the context of gaming) to be remapped in software per game, so that the keyboard is still functional while playing games by switching back to the default layer
@@ -149,7 +149,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp SCRL_UP SCRL_DOWN>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
         };
     };
 
@@ -164,6 +164,22 @@
             tapping-term-ms = <200>;
             bindings = <&mo>, <&tog>;
         };
+
+        // encoder mouse scroll behaviour
+        rot_kp_pg: rotary_kp_page {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <100>;
+            bindings = <&kp PAGE_DOWN>, <&kp PAGE_UP>;
+        };
+
+        // encoder mouse scroll behaviour (not working?)
+        // rot_msc: rotary_scroll {
+        //     compatible = "zmk,behavior-sensor-rotate";
+        //     #sensor-binding-cells = <0>;
+        //     tap-ms = <100>;
+        //     bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+        // };
     };
 
     // go to tri layer (gaming) if both lower (mouse scroll) and raise (function) layers are activated.
