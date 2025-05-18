@@ -14,6 +14,26 @@
         };
     };
 
+    kscan1: kscan1 {
+        status = "okay";
+        row-gpios
+            = <&mcp_io 0 (GPIO_ACTIVE_LOW)>
+            , <&mcp_io 1 (GPIO_ACTIVE_LOW)>
+            , <&mcp_io 2 (GPIO_ACTIVE_LOW)>
+            , <&mcp_io 3 (GPIO_ACTIVE_LOW)>
+            , <&mcp_io 4 (GPIO_ACTIVE_LOW)>
+            , <&mcp_io 5 (GPIO_ACTIVE_LOW)>
+            ;
+        col-gpios
+            = <&mcp_io 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 7  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 8  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&mcp_io 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            ;
+    };
+
     // dpad and RKJXT1F42001 buttons
     kscan2: kscan2 {
         compatible = "zmk,kscan-gpio-direct";
@@ -37,5 +57,67 @@
 
     RKJXT1F42001_encoder: encoder_RKJXT1F42001 {
         status = "okay";
+        a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
     };
+};
+
+&pinctrl {
+
+    // I2C for MCP23017
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 24)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 22)>;
+        };
+    };
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 24)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 22)>;
+            low-power-enable;
+        };
+    };
+
+    // SPI for the nice view display
+    spi1_default: spi1_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 11)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 0)>;
+        };
+    };
+    spi1_sleep: spi1_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 11)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 0)>;
+            low-power-enable;
+        };
+    };
+};
+
+&i2c0 {
+    compatible = "nordic,nrf-twim";
+    status = "okay";
+    clock-frequency = <I2C_BITRATE_FAST>;
+    wakeup-source;
+
+    mcp_io: mcp23017@20 {
+        compatible = "microchip,mcp230xx";
+        status = "okay";
+        gpio-controller;
+        wakeup-source;
+        reg = <0x20>;
+        #gpio-cells = <2>;
+        ngpios = <16>;
+        int-gpios = <&gpio1 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        reset-gpios = <&gpio0 20 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+    };
+};
+
+nice_view_spi: &spi1 {
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi1_default>;
+    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
 };
