@@ -4,16 +4,18 @@
 
 // layers, duplicate from the keymap (can these be pulled from there directly?)
 #define DEFAULT         0
-#define RAISE           1
+#define TRI_LAYER       1
+#define GAMING          TRI_LAYER
+#define RAISE           2
 #define FUNCTION        RAISE
-#define MOUSE           2
+#define MOUSE           3
 #define MS              MOUSE
-#define LOWER           3
+#define LOWER           4
 #define LW              LOWER
 #define MOUSE_SCROLL    LOWER
 #define MSS             MOUSE_SCROLL
-#define TRI_LAYER       4
-#define GAMING          TRI_LAYER
+#define SNIPE           5
+#define SN              SNIPE
 
 / {
 

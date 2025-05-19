@@ -30,6 +30,11 @@
             layers = <DEFAULT FUNCTION MOUSE GAMING>;
             process-next;
         };
+        snipe {
+            layers = <SNIPE>;
+            input-processors = <&zip_xy_scaler 1 3>;
+            process-next;
+        };
         scroll {
             layers = <MOUSE_SCROLL>;
             input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 2>, <&zip_xy_to_scroll_mapper>;

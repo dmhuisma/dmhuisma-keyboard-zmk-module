@@ -5,16 +5,18 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT         0
-#define RAISE           1
+#define TRI_LAYER       1
+#define GAMING          TRI_LAYER
+#define RAISE           2
 #define FUNCTION        RAISE
-#define MOUSE           2
+#define MOUSE           3
 #define MS              MOUSE
-#define LOWER           3
+#define LOWER           4
 #define LW              LOWER
 #define MOUSE_SCROLL    LOWER
 #define MSS             MOUSE_SCROLL
-#define TRI_LAYER       4
-#define GAMING          TRI_LAYER
+#define SNIPE           5
+#define SN              SNIPE
 
 / {
     keymap {
@@ -29,8 +31,8 @@
                                                 &kp MINUS       &kp EQUAL                                                                                                               &kp LBKT        &kp RBKT
 
                                                                                 &kp SPACE                                                                               &kp ENTER
-                                                                                                &mo_tog LW MS   &kp LEFT_META           &kp LALT        &mo RAISE
-                                                                                                &kp LCTRL       &kp TAB                 &kp DELETE      &kp BACKSPACE
+                                                                                                &mo_tog LW SN   &kp LEFT_META           &kp LALT        &mo RAISE
+                                                                                                &kp LCTRL       &kp TAB                 &kp DELETE      &mt RCTRL BACKSPACE
             
                                                                                                 &kp UP_ARROW
                                                                                 &kp LEFT_ARROW  &trans          &kp RIGHT_ARROW
@@ -46,87 +48,9 @@
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
         };
 
-        function_layer {    // Layer 1
-            bindings = <
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &bootloader     &sys_reset      &soft_off
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                                                &trans          &trans                                                                                                                  &trans          &trans
-
-                                                                                &trans                                                                                  &trans
-                                                                                                &to TRI_LAYER   &trans                  &trans          &trans
-                                                                                                &trans          &trans                  &trans          &trans
-            
-                                                                                                &trans
-                                                                                &trans          &trans          &trans
-                                                                                                &trans
-
-                                                                                                &trans
-                                                                                &trans          &trans          &trans
-                                                                                                &trans
-                                            
-                                                                                                                                        &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
-        };
-
-        mouse_layer {       // Layer 2
-            bindings = <
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &mkp MCLK       &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &mkp LCLK       &mkp RCLK       &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                                                &trans          &trans                                                                                                                  &trans          &trans
-
-                                                                                &trans                                                                                  &trans
-                                                                                                &trans          &trans                  &trans          &trans
-                                                                                                &trans          &trans                  &trans          &trans
-            
-                                                                                                &trans
-                                                                                &trans          &trans          &trans
-                                                                                                &trans
-
-                                                                                                &trans
-                                                                                &trans          &trans          &trans
-                                                                                                &trans
-                                            
-                                                                                                                                        &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
-        };
-
-        mouse_scroll_layer {    // Layer 3, also functionally an alternate function layer
-            bindings = <
-                &soft_off       &sys_reset      &bootloader     &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &out OUT_BLE    &out OUT_USB    &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &bt BT_DISC 0   &bt BT_DISC 1   &trans          &trans          &bt BT_DISC 4   &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &bt BT_PRV      &bt BT_NXT      &bt BT_DISC 2   &bt BT_DISC 3   &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                                                &bt BT_CLR      &trans                                                                                                                  &trans          &trans
-
-                                                                                &trans                                                                                  &trans
-                                                                                                &trans          &trans                  &trans          &to TRI_LAYER
-                                                                                                &trans          &trans                  &trans          &trans
-            
-                                                                                                &trans
-                                                                                &trans          &trans          &trans
-                                                                                                &trans
-
-                                                                                                &trans
-                                                                                &trans          &trans          &trans
-                                                                                                &trans
-                                            
-                                                                                                                                        &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
-        };
-
         // a layer of seldom used keys (in the context of gaming) to be remapped in software per game, so that the keyboard is still functional while playing games by switching back to the default layer
         // I use input-remapper, and in gaming profiles I will set these keys by default to be ignored until set specifically by the game profile.
-        gaming_layer {    // Layer 4
+        gaming_layer {    // Layer 1
             bindings = <
                 &trans          &kp UP_ARROW    &kp DOWN_ARROW  &kp LEFT_ARROW  &kp RIGHT_ARROW &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
                 &kp PAGE_UP     &kp F16         &kp F17         &kp F18         &kp F19         &kp F20                                                 &trans          &trans          &trans          &trans          &trans          &trans
@@ -135,12 +59,116 @@
                                                 &kp RBKT        &kp BACKSLASH                                                                                                           &trans          &trans
 
                                                                                 &kp F5                                                                                  &trans
-                                                                                                &kp F6          &kp F7                  &trans          &trans
+                                                                                                &kp F6          &kp F7                  &trans          &mo RAISE
                                                                                                 &kp F8          &kp F9                  &trans          &trans
             
                                                                                                 &kp F1
                                                                                 &kp F3          &kp RIGHT_ALT   &kp F4
                                                                                                 &kp F2
+
+                                                                                                &trans
+                                                                                &trans          &trans          &trans
+                                                                                                &trans
+                                            
+                                                                                                                                        &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
+        };
+
+        function_layer {    // Layer 2
+            bindings = <
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &bootloader     &sys_reset      &soft_off
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                                                &trans          &trans                                                                                                                  &trans          &trans
+
+                                                                                &trans                                                                                  &trans
+                                                                                                &tog TRI_LAYER  &trans                  &trans          &trans
+                                                                                                &trans          &trans                  &trans          &trans
+            
+                                                                                                &kp PAGE_UP
+                                                                                &kp HOME        &trans          &kp END
+                                                                                                &kp PAGE_DOWN
+
+                                                                                                &trans
+                                                                                &trans          &trans          &trans
+                                                                                                &trans
+                                            
+                                                                                                                                        &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
+        };
+
+        mouse_layer {       // Layer 3
+            bindings = <
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &mkp LCLK       &mkp RCLK       &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &mkp MCLK       &trans          &trans          &trans
+                                                &trans          &trans                                                                                                                  &trans          &trans
+
+                                                                                &trans                                                                                  &trans
+                                                                                                &trans          &trans                  &trans          &trans
+                                                                                                &trans          &trans                  &trans          &trans
+            
+                                                                                                &trans
+                                                                                &trans          &trans          &trans
+                                                                                                &trans
+
+                                                                                                &trans
+                                                                                &trans          &trans          &trans
+                                                                                                &trans
+                                            
+                                                                                                                                        &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
+        };
+
+        mouse_scroll_layer {    // Layer 4, also functionally an alternate function layer
+            bindings = <
+                &soft_off       &sys_reset      &bootloader     &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                                                &trans          &trans                                                                                                                  &trans          &trans
+
+                                                                                &trans                                                                                  &trans
+                                                                                                &trans          &trans                  &trans          &tog TRI_LAYER
+                                                                                                &trans          &trans                  &trans          &trans
+            
+                                                                                                &trans
+                                                                                &trans          &trans          &trans
+                                                                                                &trans
+
+                                                                                                &trans
+                                                                                &trans          &trans          &trans
+                                                                                                &trans
+                                            
+                                                                                                                                        &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
+        };
+
+        snipe_layer {       // Layer 5
+            bindings = <
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                                                &trans          &trans                                                                                                                  &trans          &trans
+
+                                                                                &trans                                                                                  &trans
+                                                                                                &trans          &trans                  &trans          &trans
+                                                                                                &trans          &trans                  &trans          &trans
+            
+                                                                                                &trans
+                                                                                &trans          &trans          &trans
+                                                                                                &trans
 
                                                                                                 &trans
                                                                                 &trans          &trans          &trans
