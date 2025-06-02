@@ -79,20 +79,27 @@
     // disabled by default - only on left side
     RKJXT1F42001_encoder: encoder_RKJXT1F42001 {
         compatible = "alps,ec11";
-        steps = <15>;
+        steps = <30>;
         status = "disabled";
     };
 
     // disabled by default - only on right side
     EVQWGD001_encoder: encoder_EVQWGD001 {
         compatible = "alps,ec11";
-        steps = <60>;
+        steps = <80>;
         status = "disabled";
     };
 
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&RKJXT1F42001_encoder &EVQWGD001_encoder>;
-        triggers-per-rotation = <15>;
+
+        RKJXT1F42001_encoder {
+            triggers-per-rotation = <15>;
+        };
+
+        EVQWGD001_encoder {
+            triggers-per-rotation = <20>;
+        };
     };
 };
