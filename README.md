@@ -1,10 +1,12 @@
 # Dmhuisma Keyboard ZMK Module
 
-This is my ZMK module for the split keyboard I generated with the [Cosmos keyboard generator](https://ryanis.cool/cosmos/). This is still a work in progress and completely untested because the keyboard not been built yet.
+This is my ZMK module for the split keyboard I generated with the [Cosmos keyboard generator](https://ryanis.cool/cosmos/). This is still a work in progress, the left side is finished but I have to remake the right side due to issues I have been having with assembling the trackball.
 
-![Cosmos Keyboard Screenshot](assets/cosmos_keyboard_screenshot.png)
+The dpad, as configured here by cosmos, is not very good. The ALPS 5 way switch is not suitable for gaming use. It is very mushy and cannot do diagonal directions properly. I have made some custom modifications, as shown in [DPAD.md](DPAD.md)
 
-The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:Ct8BChUSBRCAbyAnEgASABIAOB5AgIaLoAIKHhIFEIBjICcSABIAEgMQsDsSAxCwazgKQIDITUi0AwogEgUQgFcgJxIAEgASAxCwLxIDELBfOAlAgOCHuAJItAMKDxIFEIBLICcSABIAEgA4HQoPEgUQgD8gJxIAEgASADgxCikSEhBAICdAqI6HmAZIs5H0vOHQARIPCBNAl+qWGEi5nZSt4b4FMB04RQooEgggJ2IEVEVSTRIDEJB3EgQQoM4KEgkQMGIFU0hJRlQ4MkCAhougAhgAQK6Ql/gqSN6HgPSgNQqaAQp7EhYIgDAQwIACIABAi4XYlhBIjYWAwN0NEhgIloCiARBAIABAioXwtOANSJWn/MTgtQUSDyAAQK2F3ANImYmEnuDcEBIQIABA4oPY0AFI6ZOcl6DwERIPIABAz+KPOEiDj5yXoL0SEhEgAEDwhbyXsAFI4Z3MjcDYEjgAGAIiCgjIARDIARgAIABA15HMrPAzSKap4MbwswgK0wEKFRIFEIADICcSABIAEgA4HUCAhougAgoYEgUQgA8gJxIAEgASABIAOAlAgMhNSLQDChoSBRCAGyAnEgASABIAEgA4CkCA4Ie4Aki0AwoPEgUQgCcgJxIAEgASADgeCg8SBRCAMyAnEgASABIAODIKKRISEEAgJ0CnjoeYBkizkfi80dABEg8IG0CAqo74BEilkdC9gXYwHThGCigSByAnYgNFU0MSBBCQwAESBBCggAoSCRAwYgVTSElGVDgxQICGi6ACGAFArZCX+CpI3of875A1CrgBCpgBEhUIHBBAIABA2IOglcAMSM6DuI6g1QESGAiAMCAAQJn4lghIhI+AsKwBYgVTcGFjZRIYEEAgAECuhdwDSJmJiJ7Q3BBiBU1PVVNFEhcQQCAAQOGD2NABSOmToJeQ8BFiA1RBQhIXEEAgAEDQ4o84SIOPoJeQvRJiBE1FVEESFxBAIABA74W8l7ABSIWf0I2w2BJiAkZOOAAYAyIKCMgBEMgBGAAgAEDYkcys8DNIpqncxoC0CBiNICIFIKALKBwwHoIBAQNYSGADchYoMjgKQBRQqgZY4gmIAeIJYLgIcNAFeKCN9I7xOA==). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board.
+![Cosmos Keyboard Screenshot](assets/images/cosmos_keyboard_screenshot.jpg)
+
+The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:Ct8BChUSBRCAbyAnEgASABIAOB5AgIaLoAIKHhIFEIBjICcSABIAEgMQsDsSAxCwazgKQIDITUi0AwogEgUQgFcgJxIAEgASAxCwLxIDELBfOAlAgOCHuAJItAMKDxIFEIBLICcSABIAEgA4HQoPEgUQgD8gJxIAEgASADgxCikSEhBAICdAqI6HmAZIs5H0vOHQARIPCBNAl+qWGEi5nZSt4b4FMB04RQooEgggJ2IEVEVSTRIDEJB3EgQQoM4KEgkQMGIFU0hJRlQ4MkCAhougAhgAQK6Ql/gqSN6HgPSgNQqaAQp7EhYIgDAQwIACIABAi4XYlhBIjYWAwN0NEhgIloCiARBAIABAioXwtOANSJWn/MTgtQUSDyAAQK2F3ANImYmEnuDcEBIQIABA4oPY0AFI6ZOcl6DwERIPIABAz+KPOEiDj5yXoL0SEhEgAEDwhbyXsAFI4Z3MjcDYEjgAGAIiCgjIARDIARgAIABA15HMrPAzSKap4MbwswgK0wEKFRIFEIADICcSABIAEgA4HUCAhougAgoYEgUQgA8gJxIAEgASABIAOAlAgMhNSLQDChoSBRCAGyAnEgASABIAEgA4CkCA4Ie4Aki0AwoPEgUQgCcgJxIAEgASADgeCg8SBRCAMyAnEgASABIAODIKKRISEEAgJ0CnjoeYBkizkfi80dABEg8IG0CAqo74BEilkdC9gXYwHThGCigSByAnYgNFU0MSBBCQwAESBBCggAoSCRAwYgVTSElGVDgxQICGi6ACGAFArZCX+CpI3of875A1CrgBCpgBEhUIHBBAIABA2IOglcAMSM6DuI6g1QESGAiAMCAAQJn4lghIhI+AsKwBYgVTcGFjZRIYEEAgAECuhdwDSJmJiJ7Q3BBiBU1PVVNFEhcQQCAAQOGD2NABSOmToJeQ8BFiA1RBQhIXEEAgAEDQ4o84SIOPoJeQvRJiBE1FVEESFxBAIABA74W8l7ABSIWf0I2w2BJiAkZOOAAYAyIKCMgBEMgBGAAgAEDYkcys8DNIpqncxoC0CBiNICIFIKALKBwwHoIBAQNYSGADchYoMjgKQBRQqgZY4gmIAeIJYLgIcNAFeKCN9I7xOA==). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board, in addition to my dpad changes.
 
 ## Features
 - Ergonomic
@@ -16,15 +18,15 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
 - Trackball mouse movement
 - Displays
 - Hotswappable keys
+- Dongle
 - Multiple potentiometers (one with directional clicking) for media controls, mouse scrolling, etc.
-- Dpad for cursor navigation or gaming
+- Dpad for cursor navigation or gaming (see [DPAD.md](DPAD.md))
 
 ## TODO
 
-- finish ZMK module, lots of it is currently placeholder
-- document keymap
-- add image of finished keyboard
-- update cosmos link with final config
+- Redesign and remake right side, due to trackball issues
+- Update cosmos link with final config
+- [Prospector dongle](https://github.com/carrefinho/prospector)
 
 ## Building
 
@@ -42,7 +44,7 @@ If building locally, the following external zmk modules are required on your mac
 
 ## Keyscan Matrix
 
-![Keyscan Matrix](assets/keyscan_matrix_layout.svg)
+![Keyscan Matrix](assets/images/keyscan_matrix_layout.svg)
 
 ## Pinout
 
@@ -72,17 +74,17 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |-----------------------|-----------------------------------------------|
 |Battery+               ||
 |Battery+               ||
-|GND                    |SKQU GND|
+|GND                    |DPAD GND|
 |Reset                  ||
 |3.3V Vcc               |NiceView Vcc, MCP23017 Vcc|
 |**[D21]** P0.31 (ADC)  ||
 |**[D20]** P0.29 (ADC)  ||
 |**[D19]** P0.02 (ADC)  ||
-|**[D18]** P1.15        |SKQU up|
-|**[D15]** P1.13        |SKQU down|
-|**[D14]** P1.11        |SKQU left|
-|**[D16]** P0.10        |SKQU right|
-|**[D10]** P0.09        |SKQU center|
+|**[D18]** P1.15        |DPAD up|
+|**[D15]** P1.13        |DPAD down|
+|**[D14]** P1.11        |DPAD left|
+|**[D16]** P0.10        |DPAD right|
+|**[D10]** P0.09        ||
 
 #### Nice!Nano V2 Back GPIO
 |                       |                                               |

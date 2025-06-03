@@ -35,7 +35,7 @@
                                                                                                 &kp LCTRL       &kp TAB                 &kp DELETE      &kp BACKSPACE
             
                                                                                                 &kp UP_ARROW
-                                                                                &kp LEFT_ARROW  &trans          &kp RIGHT_ARROW
+                                                                                &kp LEFT_ARROW                  &kp RIGHT_ARROW
                                                                                                 &kp DOWN_ARROW
 
                                                                                                 &kp K_MUTE
@@ -63,7 +63,7 @@
                                                                                                 &kp F8          &kp F9                  &trans          &trans
             
                                                                                                 &kp F1
-                                                                                &kp F3          &trans          &kp F4
+                                                                                &kp F3                          &kp F4
                                                                                                 &kp F2
 
                                                                                                 &trans
@@ -89,7 +89,7 @@
                                                                                                 &trans          &trans                  &trans          &trans
             
                                                                                                 &kp PAGE_UP
-                                                                                &kp HOME        &trans          &kp END
+                                                                                &kp HOME                        &kp END
                                                                                                 &kp PAGE_DOWN
 
                                                                                                 &trans
@@ -115,7 +115,7 @@
                                                                                                 &trans          &trans                  &trans          &trans
             
                                                                                                 &trans
-                                                                                &trans          &trans          &trans
+                                                                                &trans                          &trans
                                                                                                 &trans
 
                                                                                                 &trans
@@ -141,7 +141,7 @@
                                                                                                 &trans          &trans                  &trans          &trans
             
                                                                                                 &trans
-                                                                                &trans          &trans          &trans
+                                                                                &trans                          &trans
                                                                                                 &trans
 
                                                                                                 &trans
@@ -167,7 +167,7 @@
                                                                                                 &trans          &trans                  &trans          &trans
             
                                                                                                 &trans
-                                                                                &trans          &trans          &trans
+                                                                                &trans                          &trans
                                                                                                 &trans
 
                                                                                                 &trans
