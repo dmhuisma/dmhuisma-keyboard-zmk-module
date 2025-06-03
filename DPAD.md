@@ -18,7 +18,7 @@ And then make it slightly less ugly.
 
 ![DPAD hole cover](assets/images/dpad_hole_cover.jpg)
 
-Then insert the joystick. I modified this model for my purposes. All the STL files I used are included in this repo. The cover for the dpad hole is a bit specific though, since it follows the shape of the hole I dremeled (not sure why I did that).
+Then insert the joystick. I modified [this model](https://www.thingiverse.com/thing:5578390) for my purposes. All the STL files I used are included in this repo. The cover for the dpad hole is a bit specific though, since it follows the shape of the hole I dremeled (not sure why I did that).
 
 ![DPAD completed](assets/images/dpad_completed.jpg)
 
