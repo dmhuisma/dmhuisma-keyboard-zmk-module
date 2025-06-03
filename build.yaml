@@ -28,7 +28,7 @@ include:
     shield: dmhuisma_right nice_view
     artifact_name: dmhuisma_right
     cmake-args: -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
-  - board: nrf52840dongle_nrf52840
+  - board: seeeduino_xiao_ble
     shield: dmhuisma_dongle
     artifact_name: dmhuisma_dongle
   - board: nice_nano_v2

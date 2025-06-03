@@ -34,7 +34,7 @@ The firmware is built by Github actions on every commit. It can also be built wi
 
 > west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to zmk-pmw3610-driver]/zmk-pmw3610-driver" -DSHIELD="dmhuisma_right nice_view" -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
 
-> west build -p auto -d build/dongle -b nrf52840dongle_nrf52840 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module" -DSHIELD="dmhuisma_dongle"
+> west build -p auto -d build/dongle -b seeeduino_xiao_ble -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module" -DSHIELD="dmhuisma_dongle"
 
 If building locally, the following external zmk modules are required on your machine:
 
