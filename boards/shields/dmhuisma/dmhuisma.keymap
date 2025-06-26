@@ -1,3 +1,5 @@
+#define ZMK_POINTING_DEFAULT_MOVE_VAL   2000
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
@@ -30,9 +32,9 @@
                 &kp LEFT_SHIFT  &kp Z           &kp X           &kp C           &kp V           &kp B                                                   &kp N           &kp M           &kp COMMA       &kp PERIOD      &kp SLASH       &kp RIGHT_SHIFT
                                                 &kp MINUS       &kp EQUAL                                                                                                               &kp LBKT        &kp RBKT
 
-                                                                                &kp SPACE                                                                               &kp ENTER
-                                                                                                &mo_tog LW SN   &kp LEFT_META           &kp LALT        &mo RAISE
-                                                                                                &kp LCTRL       &kp TAB                 &kp DELETE      &kp BACKSPACE
+                                                                                &kp SPACE                                                                               &kp BACKSPACE
+                                                                                                &kp LCTRL           &kp TAB             &kp DELETE      &kp ENTER
+                                                                                                &mo_tog LW SN       &kp LEFT_META       &kp LALT        &mo RAISE
             
                                                                                                 &kp UP_ARROW
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW
@@ -45,9 +47,9 @@
                                                                                                                                         &mkp MCLK
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
         };
-
+        
         // a layer of seldom used keys (in the context of gaming) to be remapped in software per game, so that the keyboard is still functional while playing games by switching back to the default layer
         // I use input-remapper, and in gaming profiles I will set these keys by default to be ignored until set specifically by the game profile.
         gaming_layer {    // Layer 1
@@ -73,7 +75,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
         };
 
         function_layer {    // Layer 2
@@ -85,8 +87,8 @@
                                                 &trans          &trans                                                                                                                  &trans          &bootloader
 
                                                                                 &trans                                                                                  &trans
-                                                                                                &tog TRI_LAYER  &trans                  &trans          &trans
                                                                                                 &trans          &trans                  &trans          &trans
+                                                                                                &tog TRI_LAYER  &trans                  &trans          &trans
             
                                                                                                 &kp PAGE_UP
                                                                                 &kp HOME                        &kp END
@@ -99,7 +101,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
         };
 
         mouse_layer {       // Layer 3
@@ -125,7 +127,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
         };
 
         mouse_scroll_layer {    // Layer 4, also functionally an alternate function layer
@@ -137,8 +139,8 @@
                                                 &trans          &trans                                                                                                                  &trans          &trans
 
                                                                                 &trans                                                                                  &trans
-                                                                                                &trans          &trans                  &trans          &tog TRI_LAYER
                                                                                                 &trans          &trans                  &trans          &trans
+                                                                                                &trans          &trans                  &trans          &tog TRI_LAYER
             
                                                                                                 &trans
                                                                                 &trans                          &trans
@@ -151,7 +153,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
         };
 
         snipe_layer {       // Layer 5
@@ -177,7 +179,7 @@
                                                                                                                                         &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_kp_pg>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
         };
     };
 
@@ -202,12 +204,12 @@
         };
 
         // encoder mouse scroll behaviour (not working?)
-        // rot_msc: rotary_scroll {
-        //     compatible = "zmk,behavior-sensor-rotate";
-        //     #sensor-binding-cells = <0>;
-        //     tap-ms = <100>;
-        //     bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
-        // };
+        rot_msc: rotary_scroll {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            tap-ms = <20>;
+            bindings = <&msc MOVE_UP>, <&msc MOVE_DOWN>;
+        };
     };
 
     macros {
