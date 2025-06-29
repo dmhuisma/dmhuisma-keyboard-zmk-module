@@ -6,7 +6,7 @@ The dpad, as configured here by cosmos, is not very good. The ALPS 5 way switch 
 
 ![Cosmos Keyboard Screenshot](assets/images/cosmos_keyboard_screenshot.jpg)
 
-The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:Ct8BChUSBRCAbyAnEgASABIAOB5AgIaLoAIKHhIFEIBjICcSABIAEgMQsDsSAxCwazgKQIDITUi0AwogEgUQgFcgJxIAEgASAxCwLxIDELBfOAlAgOCHuAJItAMKDxIFEIBLICcSABIAEgA4HQoPEgUQgD8gJxIAEgASADgxCikSEhBAICdAqI6HmAZIs5H0vOHQARIPCBNAl+qWGEi5nZSt4b4FMB04RQooEgggJ2IEVEVSTRIDEJB3EgQQoM4KEgkQMGIFU0hJRlQ4MkCAhougAhgAQK6Ql/gqSN6HgPSgNQqaAQp7EhYIgDAQwIACIABAi4XYlhBIjYWAwN0NEhgIloCiARBAIABAioXwtOANSJWn/MTgtQUSDyAAQK2F3ANImYmEnuDcEBIQIABA4oPY0AFI6ZOcl6DwERIPIABAz+KPOEiDj5yXoL0SEhEgAEDwhbyXsAFI4Z3MjcDYEjgAGAIiCgjIARDIARgAIABA15HMrPAzSKap4MbwswgK0wEKFRIFEIADICcSABIAEgA4HUCAhougAgoYEgUQgA8gJxIAEgASABIAOAlAgMhNSLQDChoSBRCAGyAnEgASABIAEgA4CkCA4Ie4Aki0AwoPEgUQgCcgJxIAEgASADgeCg8SBRCAMyAnEgASABIAODIKKRISEEAgJ0CnjoeYBkizkfi80dABEg8IG0CAqo74BEilkdC9gXYwHThGCigSByAnYgNFU0MSBBCQwAESBBCggAoSCRAwYgVTSElGVDgxQICGi6ACGAFArZCX+CpI3of875A1CrgBCpgBEhUIHBBAIABA2IOglcAMSM6DuI6g1QESGAiAMCAAQJn4lghIhI+AsKwBYgVTcGFjZRIYEEAgAECuhdwDSJmJiJ7Q3BBiBU1PVVNFEhcQQCAAQOGD2NABSOmToJeQ8BFiA1RBQhIXEEAgAEDQ4o84SIOPoJeQvRJiBE1FVEESFxBAIABA74W8l7ABSIWf0I2w2BJiAkZOOAAYAyIKCMgBEMgBGAAgAEDYkcys8DNIpqncxoC0CBiNICIFIKALKBwwHoIBAQNYSGADchYoMjgKQBRQqgZY4gmIAeIJYLgIcNAFeKCN9I7xOA==). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board, in addition to my dpad changes.
+The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:Ct8BChUSBRCAbyAnEgASABIAOB5AgIaLoAIKHhIFEIBjICcSABIAEgMQsDsSAxCwazgKQIDITUi0AwogEgUQgFcgJxIAEgASAxCwLxIDELBfOAlAgOCHuAJItAMKDxIFEIBLICcSABIAEgA4HQoPEgUQgD8gJxIAEgASADgxCikSEhBAICdAqI6HmAZIs5H0vOHQARIPCBNAl+qWGEi5nZSt4b4FMB04RQooEgggJ2IEVEVSTRIDEJB3EgQQoM4KEgkQMGIFU0hJRlQ4MkCAhougAhgAQK6Ql/gqSN6HgPSgNQqaAQp7EhYIgDAQwIACIABAi4XYlhBIjYWAwN0NEhgIloCoARBAIABA9onorZAOSLGjuPeA+gcSDyAAQK2F3ANImYmEnuDcEBIQIABA4oPY0AFI6ZOcl6DwERIPIABAz+KPOEiDj5yXoL0SEhEgAEDwhbyXsAFI4Z3MjcDYEjgAGAIiCgjIARDIARgAIABA15HMrPAzSKap4MbwswgK0wEKFRIFEIADICcSABIAEgA4HUCAhougAgoYEgUQgA8gJxIAEgASABIAOAlAgMhNSLQDChoSBRCAGyAnEgASABIAEgA4CkCA4Ie4Aki0AwoPEgUQgCcgJxIAEgASADgeCg8SBRCAMyAnEgASABIAODIKKRISEEAgJ0CnjoeYBkizkfi80dABEg8IG0CAqo74BEilkdC9gXYwHThGCigSByAnYgNFU0MSBBCQwAESBBCggAoSCRAwYgVTSElGVDgxQICGi6ACGAFArZCX+CpI3of875A1CrgBCpgBEhUIHBBAIABA2IOglcAMSM6DuI6g1QESGAiAMCAAQJn4lghIhI+AsKwBYgVTcGFjZRIYEEAgAECuhdwDSJmJiJ7Q3BBiBU1PVVNFEhcQQCAAQOGD2NABSOmToJeQ8BFiA1RBQhIXEEAgAEDQ4o84SIOPoJeQvRJiBE1FVEESFxBAIABA74W8l7ABSIWf0I2w2BJiAkZOOAAYAyIKCMgBEMgBGAAgAEDYkcys8DNIpqncxoC0CBiNICIFIKALKBwwHoIBAQNYSGADchMoMjgKQBRY4gmIAeIJYIQHcNAFePSHnKXxOA==). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board, in addition to my dpad changes.
 
 ## Features
 - Ergonomic
@@ -15,8 +15,9 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
     - Thumb clusters
     - Staggered to accommodate my hand/finger sizes
 - Wireless
+- Enhanced ShockBurst (ESB) protocol instead of BLE for enhanced responsiveness, courtesy of [zmk-feature-split-esb](https://github.com/badjeff/zmk-feature-split-esb).
 - Trackball mouse movement
-- Displays
+- Displays (currently unable to get this working alongside ESB)
 - Hotswappable keys
 - Dongle
 - Multiple potentiometers (one with directional clicking) for media controls, mouse scrolling, etc.
@@ -24,23 +25,22 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
 
 ## TODO
 
-- Redesign and remake right side, due to trackball issues
-- Update cosmos link with final config
 - [Prospector dongle](https://github.com/carrefinho/prospector)
 
 ## Building
 
 The firmware is built by Github actions on every commit. It can also be built with a local install of ZMK with the following commands.
 
-> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module" -DSHIELD="dmhuisma_left nice_view" -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib" -DSHIELD="dmhuisma_left"
 
-> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to zmk-pmw3610-driver]/zmk-pmw3610-driver" -DSHIELD="dmhuisma_right nice_view" -DCONFIG_ZMK_SPLIT=y -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to zmk-pmw3610-driver]/zmk-pmw3610-driver;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib" -DSHIELD="dmhuisma_right"
 
-> west build -p auto -d build/dongle -b seeeduino_xiao_ble -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module" -DSHIELD="dmhuisma_dongle"
+> west build -p auto -d build/dongle -b seeeduino_xiao_ble -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib" -DSHIELD="dmhuisma_dongle"
 
 If building locally, the following external zmk modules are required on your machine:
 
 - [zmk-pmw3610-driver](https://github.com/badjeff/zmk-pmw3610-driver) (for the right side only)
+- [zmk-feature-split-esb](https://github.com/badjeff/zmk-feature-split-esb) (some extra setup steps required, refer to the repo)
 
 ## Keyscan Matrix
 

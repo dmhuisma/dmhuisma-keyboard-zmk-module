@@ -28,7 +28,7 @@
             bindings = <
                 &kp ESCAPE      &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4    &kp NUMBER_5                                            &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0    &kp F12
                 &kp GRAVE       &kp Q           &kp W           &kp E           &kp R           &kp T                                                   &kp Y           &kp U           &kp I           &kp O           &kp P           &kp BACKSLASH
-                &vscode_task    &kp A           &kp S           &kp D           &kp F           &kp G                                                   &kp H           &kp J           &kp K           &kp L           &kp SEMICOLON   &kp SINGLE_QUOTE
+                &vscode_task    &mt LCTRL A     &mt LSHIFT S    &kp D           &kp F           &kp G                                                   &kp H           &kp J           &kp K           &mt RSHIFT L    &mt RCTRL SEMICOLON   &kp SINGLE_QUOTE
                 &kp LEFT_SHIFT  &kp Z           &kp X           &kp C           &kp V           &kp B                                                   &kp N           &kp M           &kp COMMA       &kp PERIOD      &kp SLASH       &kp RIGHT_SHIFT
                                                 &kp MINUS       &kp EQUAL                                                                                                               &kp LBKT        &kp RBKT
 
@@ -81,10 +81,10 @@
         function_layer {    // Layer 2
             bindings = <
                 &trans          &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &kp F11
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &kp SCROLLLOCK  &trans          &trans          &trans          &sys_reset      &soft_off
-                                                &trans          &trans                                                                                                                  &trans          &bootloader
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &kp NUMBER_4    &kp NUMBER_5    &kp NUMBER_6    &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &kp SCROLLLOCK  &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &trans          &trans
+                                                &trans          &trans                                                                                                                  &kp NUMBER_0    &trans
 
                                                                                 &trans                                                                                  &trans
                                                                                                 &trans          &trans                  &trans          &trans
@@ -107,10 +107,10 @@
         mouse_layer {       // Layer 3
             bindings = <
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &mkp MB5        &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &mkp LCLK       &mkp RCLK       &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &mkp MB4        &mkp MCLK       &trans          &trans          &trans
-                                                &trans          &trans                                                                                                                  &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &mkp RCLK       &mkp LCLK       &mkp MCLK                                               &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                                                &mkp MB4        &mkp MB5                                                                                                                &trans          &trans
 
                                                                                 &trans                                                                                  &trans
                                                                                                 &trans          &trans                  &trans          &trans
