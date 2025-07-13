@@ -3,7 +3,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT         0
@@ -25,6 +24,7 @@
         compatible = "zmk,keymap";
 
         default_layer {     // Layer 0
+            display-name = "Default";
             bindings = <
                 &kp GRAVE       &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4    &kp NUMBER_5                                            &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0    &kp F12
                 &kp TAB         &kp Q           &kp W           &kp E           &kp R           &kp T                                                   &kp Y           &kp U           &kp I           &kp O           &kp P           &kp BACKSLASH
@@ -53,6 +53,7 @@
         // a layer of seldom used keys (in the context of gaming) to be remapped in software per game, so that the keyboard is still functional while playing games by switching back to the default layer
         // I use input-remapper, and in gaming profiles I will set these keys by default to be ignored until set specifically by the game profile.
         gaming_layer {    // Layer 1
+            display-name = "Gaming";
             bindings = <
                 &trans          &kp UP_ARROW    &kp DOWN_ARROW  &kp LEFT_ARROW  &kp RIGHT_ARROW &kp RIGHT_ALT                                           &trans          &trans          &trans          &trans          &trans          &trans
                 &kp PAGE_UP     &kp F16         &kp F17         &kp F18         &kp F19         &kp F20                                                 &trans          &trans          &trans          &trans          &trans          &trans
@@ -79,8 +80,9 @@
         };
 
         function_layer {    // Layer 2
+            display-name = "Function";
             bindings = <
-                &trans          &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &kp F11
+                &studio_unlock  &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &kp F11
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &trans          &trans
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &kp NUMBER_4    &kp NUMBER_5    &kp NUMBER_6    &trans          &trans
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &kp SCROLLLOCK  &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &trans          &trans
@@ -105,10 +107,11 @@
         };
 
         mouse_layer {       // Layer 3
+            display-name = "Mouse";
             bindings = <
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &mkp RCLK       &mkp LCLK       &mkp MCLK                                               &trans          &trans          &trans          &trans          &trans          &trans
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
                                                 &mkp MB4        &mkp MB5                                                                                                                &trans          &trans
 
@@ -116,8 +119,8 @@
                                                                                                 &trans          &trans                  &trans          &trans
                                                                                                 &trans          &trans                  &trans          &trans
             
-                                                                                                &mkp MCLK
-                                                                                &mkp RCLK                       &mkp LCLK
+                                                                                                &trans
+                                                                                &trans                          &trans
                                                                                                 &trans
 
                                                                                                 &trans
@@ -131,6 +134,7 @@
         };
 
         mouse_scroll_layer {    // Layer 4, also functionally an alternate function layer
+            display-name = "Mouse Scroll";
             bindings = <
                 &soft_off       &sys_reset      &bootloader     &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
@@ -157,6 +161,7 @@
         };
 
         snipe_layer {       // Layer 5
+            display-name = "Snipe";
             bindings = <
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
                 &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans

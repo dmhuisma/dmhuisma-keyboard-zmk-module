@@ -35,7 +35,7 @@ The firmware is built by Github actions on every commit. It can also be built wi
 
 > west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to zmk-pmw3610-driver]/zmk-pmw3610-driver;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib;[path to module]/nice-view-battery" -DSHIELD="dmhuisma_right"
 
-> west build -p auto -d build/dongle -b seeeduino_xiao_ble -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib" -DSHIELD="dmhuisma_dongle"
+> west build -p auto -d build/dongle -b seeeduino_xiao_ble -S studio-rpc-usb-uart -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib" -DSHIELD="dmhuisma_dongle"
 
 If building locally, the following external zmk modules are required on your machine:
 
