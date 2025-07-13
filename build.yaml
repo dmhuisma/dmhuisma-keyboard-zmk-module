@@ -21,11 +21,9 @@
 include:
 
   - board: nice_nano_v2
-    shield: dmhuisma_left
     shield: dmhuisma_left nice_view_battery
     artifact_name: dmhuisma_left
   - board: nice_nano_v2
-    shield: dmhuisma_right
     shield: dmhuisma_right nice_view_battery
     artifact_name: dmhuisma_right
   - board: seeeduino_xiao_ble
