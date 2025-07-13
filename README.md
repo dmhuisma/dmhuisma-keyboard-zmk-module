@@ -31,9 +31,9 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
 
 The firmware is built by Github actions on every commit. It can also be built with a local install of ZMK with the following commands.
 
-> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib" -DSHIELD="dmhuisma_left"
+> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib;[path to module]/nice-view-battery" -DSHIELD="dmhuisma_left"
 
-> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to zmk-pmw3610-driver]/zmk-pmw3610-driver;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib" -DSHIELD="dmhuisma_right"
+> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to zmk-pmw3610-driver]/zmk-pmw3610-driver;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib;[path to module]/nice-view-battery" -DSHIELD="dmhuisma_right"
 
 > west build -p auto -d build/dongle -b seeeduino_xiao_ble -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib" -DSHIELD="dmhuisma_dongle"
 
@@ -41,6 +41,7 @@ If building locally, the following external zmk modules are required on your mac
 
 - [zmk-pmw3610-driver](https://github.com/badjeff/zmk-pmw3610-driver) (for the right side only)
 - [zmk-feature-split-esb](https://github.com/badjeff/zmk-feature-split-esb) (some extra setup steps required, refer to the repo)
+- [nice-view-battery](https://github.com/dmhuisma/nice-view-battery) (I forked this to get it to work with ESB, but it always shows that the keyboard is connected even if it is not)
 
 ## Keyscan Matrix
 

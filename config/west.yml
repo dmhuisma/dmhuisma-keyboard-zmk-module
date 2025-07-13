@@ -8,6 +8,8 @@ manifest:
       url-base: https://github.com/badjeff
     - name: nrfconnect
       url-base: https://github.com/nrfconnect
+    - name: dmhuisma
+      url-base: https://github.com/dmhuisma
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -28,5 +30,8 @@ manifest:
       revision: v2.6.4
       repo-path: sdk-nrfxlib
       path: nrfxlib
+    - name: nice-view-battery
+      remote: dmhuisma
+      revision: main
   self:
     path: config
