@@ -27,7 +27,7 @@ include:
     shield: dmhuisma_right nice_view_battery
     artifact_name: dmhuisma_right
   - board: seeeduino_xiao_ble
-    shield: dmhuisma_dongle
+    shield: dmhuisma_dongle rgbled_adapter
     artifact_name: dmhuisma_dongle
     snippet: studio-rpc-usb-uart
   - board: nice_nano_v2
