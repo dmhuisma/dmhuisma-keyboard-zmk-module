@@ -10,14 +10,37 @@
 #define GAMING          TRI_LAYER
 #define RAISE           2
 #define FUNCTION        RAISE
-#define MOUSE           3
+#define LOWER           3
+#define MOUSE           LOWER
 #define MS              MOUSE
-#define LOWER           4
 #define LW              LOWER
-#define MOUSE_SCROLL    LOWER
+#define MOUSE_SCROLL    4
 #define MSS             MOUSE_SCROLL
 #define SNIPE           5
 #define SN              SNIPE
+
+#define USE_HOMEROW_MODS    0
+
+#if USE_HOMEROW_MODS == 1
+// &mt LCTRL A
+#define HR_A                    &kp A
+#define HR_S                    &kp S
+#define HR_D                    &kp D
+#define HR_F                    &kp F
+#define HR_J                    &kp J
+#define HR_K                    &kp K
+#define HR_L                    &kp L
+#define HR_SC                   &kp SEMICOLON
+#else
+#define HR_A                    &kp A
+#define HR_S                    &kp S
+#define HR_D                    &kp D
+#define HR_F                    &kp F
+#define HR_J                    &kp J
+#define HR_K                    &kp K
+#define HR_L                    &kp L
+#define HR_SC                   &kp SEMICOLON
+#endif
 
 / {
     keymap {
@@ -28,13 +51,13 @@
             bindings = <
                 &kp GRAVE       &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4    &kp NUMBER_5                                            &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0    &kp F12
                 &kp TAB         &kp Q           &kp W           &kp E           &kp R           &kp T                                                   &kp Y           &kp U           &kp I           &kp O           &kp P           &kp BACKSLASH
-                &vscode_task    &kp A           &kp S           &kp D           &kp F           &kp G                                                   &kp H           &kp J           &kp K           &kp L           &kp SEMICOLON   &kp SINGLE_QUOTE
+                &vscode_task    HR_A            HR_S            HR_D            HR_F            &kp G                                                   &kp H           HR_J            HR_K            HR_L            HR_SC           &kp SINGLE_QUOTE
                 &kp LSHIFT      &kp Z           &kp X           &kp C           &kp V           &kp B                                                   &kp N           &kp M           &kp COMMA       &kp PERIOD      &kp SLASH       &kp RSHIFT
                                                 &kp MINUS       &kp EQUAL                                                                                                               &kp LBKT        &kp RBKT
 
                                                                                 &kp SPACE                                                                               &kp BACKSPACE
                                                                                                 &kp LCTRL           &kp LEFT_META       &kp DELETE      &kp ENTER
-                                                                                                &mo_tog LW SN       &kp ESCAPE          &kp RALT        &mo RAISE
+                                                                                                &mo_tog LW MSS      &kp ESCAPE          &kp RALT        &mo RAISE
             
                                                                                                 &kp UP_ARROW
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW
@@ -62,8 +85,8 @@
                                                 &kp RBKT        &kp BACKSLASH                                                                                                           &trans          &trans
 
                                                                                 &kp F5                                                                                  &trans
-                                                                                                &kp F6          &kp F7                  &trans          &mo RAISE
-                                                                                                &kp F8          &kp F9                  &trans          &trans
+                                                                                                &kp F6          &kp F7                  &trans          &trans
+                                                                                                &kp F8          &kp F9                  &trans          &mo RAISE
             
                                                                                                 &kp F1
                                                                                 &kp F3                          &kp F4
@@ -89,7 +112,7 @@
                                                 &trans          &trans                                                                                                                  &kp NUMBER_0    &trans
 
                                                                                 &trans                                                                                  &trans
-                                                                                                &trans          &trans                  &trans          &trans
+                                                                                                &kp RALT        &trans                  &trans          &trans
                                                                                                 &tog TRI_LAYER  &trans                  &trans          &trans
             
                                                                                                 &kp PAGE_UP
@@ -208,7 +231,7 @@
             bindings = <&kp PAGE_DOWN>, <&kp PAGE_UP>;
         };
 
-        // encoder mouse scroll behaviour (not working?)
+        // encoder mouse scroll behaviour
         rot_msc: rotary_scroll {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;

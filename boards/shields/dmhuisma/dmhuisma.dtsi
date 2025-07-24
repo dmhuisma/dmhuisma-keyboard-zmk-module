@@ -3,21 +3,6 @@
 #include <input/processors.dtsi>
 #include "dmhuisma_physical_layout.dtsi"
 
-// layers, duplicate from the keymap (can these be pulled from there directly?)
-#define DEFAULT         0
-#define TRI_LAYER       1
-#define GAMING          TRI_LAYER
-#define RAISE           2
-#define FUNCTION        RAISE
-#define MOUSE           3
-#define MS              MOUSE
-#define LOWER           4
-#define LW              LOWER
-#define MOUSE_SCROLL    LOWER
-#define MSS             MOUSE_SCROLL
-#define SNIPE           5
-#define SN              SNIPE
-
 / {
 
     chosen {

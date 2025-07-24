@@ -1,6 +1,21 @@
 
 #include "dmhuisma.dtsi" // The shared dtsi file is included in the overlay
 
+// layers, duplicate from the keymap (can these be pulled from there directly?)
+#define DEFAULT         0
+#define TRI_LAYER       1
+#define GAMING          TRI_LAYER
+#define RAISE           2
+#define FUNCTION        RAISE
+#define LOWER           3
+#define MOUSE           LOWER
+#define MS              MOUSE
+#define LW              LOWER
+#define MOUSE_SCROLL    4
+#define MSS             MOUSE_SCROLL
+#define SNIPE           5
+#define SN              SNIPE
+
 &kscan0 {
     compatible = "zmk,kscan-mock";
     columns = <0>;
@@ -24,7 +39,8 @@
         status = "okay";
         device = <&trackball_split>;
 
-        input-processors = <&zip_temp_layer MOUSE 2000>;
+        // disabled the automatic mouse layer, trigger with key instead
+        // input-processors = <&zip_temp_layer MOUSE 2000>;
 
         default {
             layers = <DEFAULT FUNCTION MOUSE GAMING>;

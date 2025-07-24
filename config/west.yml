@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/nrfconnect
     - name: dmhuisma
       url-base: https://github.com/dmhuisma
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -32,6 +34,9 @@ manifest:
       path: nrfxlib
     - name: nice-view-battery
       remote: dmhuisma
+      revision: main
+    - name: zmk-rgbled-widget
+      remote: caksoylar
       revision: main
   self:
     path: config
