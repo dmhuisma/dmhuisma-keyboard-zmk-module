@@ -3,18 +3,12 @@
 
 // layers, duplicate from the keymap (can these be pulled from there directly?)
 #define DEFAULT         0
-#define TRI_LAYER       1
-#define GAMING          TRI_LAYER
-#define RAISE           2
-#define FUNCTION        RAISE
-#define LOWER           3
-#define MOUSE           LOWER
-#define MS              MOUSE
-#define LW              LOWER
-#define MOUSE_SCROLL    4
-#define MSS             MOUSE_SCROLL
-#define SNIPE           5
-#define SN              SNIPE
+#define GAME            1
+#define FUNCTION        2
+#define SYMBOL          3
+#define NAVMOUSE        4
+#define MSCROLL         5
+#define SNIPE           6
 
 &kscan0 {
     compatible = "zmk,kscan-mock";
@@ -43,7 +37,7 @@
         // input-processors = <&zip_temp_layer MOUSE 2000>;
 
         default {
-            layers = <DEFAULT FUNCTION MOUSE GAMING>;
+            layers = <DEFAULT FUNCTION SYMBOL NAVMOUSE GAME>;
             process-next;
         };
         snipe {
@@ -52,7 +46,7 @@
             process-next;
         };
         scroll {
-            layers = <MOUSE_SCROLL>;
+            layers = <MSCROLL>;
             input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll_mapper>;
             process-next;
         };
