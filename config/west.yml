@@ -12,10 +12,12 @@ manifest:
       url-base: https://github.com/dmhuisma
     - name: caksoylar
       url-base: https://github.com/caksoylar
+    - name: nuovotaka
+      url-base: https://github.com/nuovotaka
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.3
       import: app/west.yml
     - name: zmk-pmw3610-driver
       remote: badjeff
@@ -37,6 +39,9 @@ manifest:
       revision: main
     - name: zmk-rgbled-widget
       remote: caksoylar
+      revision: main
+    - name: zmk-pointing-acceleration-alpha
+      remote: nuovotaka
       revision: main
   self:
     path: config
