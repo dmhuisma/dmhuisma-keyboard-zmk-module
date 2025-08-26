@@ -19,14 +19,9 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
 - Trackball mouse movement, with pointer acceleration for accuracy.
 - Displays
 - Hotswappable keys
-- Dongle
+- Dongle with display ([custom display layout](https://github.com/dmhuisma/zmk-dongle-display))
 - Multiple potentiometers (one with directional clicking) for media controls, mouse scrolling, etc.
 - Dpad for cursor navigation or gaming (see [DPAD.md](DPAD.md))
-- LED indication when in gaming layer
-
-## TODO
-
-- Nice case for the dongle
 
 ## Building
 
@@ -36,15 +31,15 @@ The firmware is built by Github actions on every commit. It can also be built wi
 
 > west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to zmk-pmw3610-driver]/zmk-pmw3610-driver;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib;[path to module]/nice-view-battery" -DSHIELD="dmhuisma_right nice_view_battery"
 
-> west build -p auto -d build/dongle -b seeeduino_xiao_ble -S studio-rpc-usb-uart -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib;[path to module]/zmk-rgbled-widget;[path to module]/zmk-pointing-acceleration-alpha" -DSHIELD="dmhuisma_dongle rgbled_adapter"
+> west build -p auto -d build/dongle -b seeeduino_xiao_ble -S studio-rpc-usb-uart -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib;[path to module]/zmk-pointing-acceleration-alpha;[path to module]/zmk-dongle-display" -DSHIELD="dmhuisma_dongle dongle_display"
 
 If building locally, the following external zmk modules are required on your machine:
 
 - [zmk-pmw3610-driver](https://github.com/badjeff/zmk-pmw3610-driver) (for the right side only)
 - [zmk-feature-split-esb](https://github.com/badjeff/zmk-feature-split-esb) (some extra setup steps required, refer to the repo)
 - [nice-view-battery](https://github.com/dmhuisma/nice-view-battery) (I forked this to get it to work with ESB, but it always shows that the keyboard is connected even if it is not)
-- [zmk-rgbled-widget](https://github.com/caksoylar/zmk-rgbled-widget)
 - [zmk-pointing-acceleration-alpha](https://github.com/nuovotaka/zmk-pointing-acceleration-alpha)
+- [zmk-dongle-display](https://github.com/dmhuisma/zmk-dongle-display) (I forked this to achieve a custom layout)
 
 ## Keyscan Matrix
 

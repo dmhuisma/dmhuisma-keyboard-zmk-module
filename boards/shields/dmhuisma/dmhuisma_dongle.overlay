@@ -30,11 +30,15 @@
     sensor-dpi = <800>;       // High precision trackball
 
     y-boost = <1000>;
-    max-factor = <3000>;
+    max-factor = <2600>;
     min-factor = <500>;
 };
 
 / {
+    chosen {
+        zephyr,display = &oled;
+    };
+
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
@@ -68,5 +72,24 @@
             input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 4>, <&zip_xy_to_scroll_mapper>;
             process-next;
         };
+    };
+};
+
+&xiao_i2c {
+    status = "okay";
+    
+    oled: ssd1306@3c {
+        compatible = "sinowealth,sh1106";
+        reg = <0x3c>;
+        width = <128>;
+        height = <64>;
+        segment-offset = <2>;
+        page-offset = <0>;
+        display-offset = <0>;
+        multiplex-ratio = <63>;
+        segment-remap;
+        com-invdir;
+        inversion-on;
+        prechargep = <0x22>;
     };
 };
