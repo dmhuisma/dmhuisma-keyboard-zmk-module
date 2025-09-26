@@ -36,7 +36,7 @@ manifest:
       path: nrfxlib
     - name: nice-view-battery
       remote: dmhuisma
-      revision: main
+      revision: esb
     - name: zmk-pointing-acceleration-alpha
       remote: nuovotaka
       revision: main
