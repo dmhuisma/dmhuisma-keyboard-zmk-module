@@ -28,7 +28,7 @@ The firmware is built by Github actions on every commit. It can also be built wi
 
 If building locally, the following external zmk modules are required on your machine:
 
-- [zmk-pmw3610-driver](https://github.com/badjeff/zmk-pmw3610-driver) (for the right side only)
+- [zmk-pmw3610-driver](https://github.com/efogdev/zmk-pmw3610-driver) (for the right side only)
 - [nice-view-battery](https://github.com/infely/nice-view-battery)
 - [zmk-pointing-acceleration-alpha](https://github.com/nuovotaka/zmk-pointing-acceleration-alpha)
 
