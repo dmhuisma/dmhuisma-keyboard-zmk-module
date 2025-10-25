@@ -1,12 +1,10 @@
 # Dmhuisma Keyboard ZMK Module
 
-This is my ZMK module for the split keyboard I generated with the [Cosmos keyboard generator](https://ryanis.cool/cosmos/). This is still a work in progress, the left side is finished but I have to remake the right side due to issues I have been having with assembling the trackball.
-
-The dpad, as configured here by cosmos, is not very good. The ALPS 5 way switch is not suitable for gaming use. It is very mushy and cannot do diagonal directions properly. I have made some custom modifications, as shown in [DPAD.md](DPAD.md)
+This is my ZMK module for the split keyboard I generated with the [Cosmos keyboard generator](https://ryanis.cool/cosmos/).
 
 ![Cosmos Keyboard Screenshot](assets/images/cosmos_keyboard_screenshot.jpg)
 
-The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:Ct8BChUSBRCAbyAnEgASABIAOB5AgIaLoAIKHhIFEIBjICcSABIAEgMQsDsSAxCwazgKQIDITUi0AwogEgUQgFcgJxIAEgASAxCwLxIDELBfOAlAgOCHuAJItAMKDxIFEIBLICcSABIAEgA4HQoPEgUQgD8gJxIAEgASADgxCikSEhBAICdAqI6HmAZIs5H0vOHQARIPCBNAl+qWGEi5nZSt4b4FMB04RQooEgggJ2IEVEVSTRIDEJB3EgQQoM4KEgkQMGIFU0hJRlQ4MkCAhougAhgAQK6Ql/gqSN6HgPSgNQqaAQp7EhYIgDAQwIACIABAi4XYlhBIjYWAwN0NEhgIloCoARBAIABA9onorZAOSLGjuPeA+gcSDyAAQK2F3ANImYmEnuDcEBIQIABA4oPY0AFI6ZOcl6DwERIPIABAz+KPOEiDj5yXoL0SEhEgAEDwhbyXsAFI4Z3MjcDYEjgAGAIiCgjIARDIARgAIABA15HMrPAzSKap4MbwswgK0wEKFRIFEIADICcSABIAEgA4HUCAhougAgoYEgUQgA8gJxIAEgASABIAOAlAgMhNSLQDChoSBRCAGyAnEgASABIAEgA4CkCA4Ie4Aki0AwoPEgUQgCcgJxIAEgASADgeCg8SBRCAMyAnEgASABIAODIKKRISEEAgJ0CnjoeYBkizkfi80dABEg8IG0CAqo74BEilkdC9gXYwHThGCigSByAnYgNFU0MSBBCQwAESBBCggAoSCRAwYgVTSElGVDgxQICGi6ACGAFArZCX+CpI3of875A1CrgBCpgBEhUIHBBAIABA2IOglcAMSM6DuI6g1QESGAiAMCAAQJn4lghIhI+AsKwBYgVTcGFjZRIYEEAgAECuhdwDSJmJiJ7Q3BBiBU1PVVNFEhcQQCAAQOGD2NABSOmToJeQ8BFiA1RBQhIXEEAgAEDQ4o84SIOPoJeQvRJiBE1FVEESFxBAIABA74W8l7ABSIWf0I2w2BJiAkZOOAAYAyIKCMgBEMgBGAAgAEDYkcys8DNIpqncxoC0CBiNICIFIKALKBwwHoIBAQNYSGADchMoMjgKQBRY4gmIAeIJYIQHcNAFePSHnKXxOA==). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board, in addition to my dpad changes.
+The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:Cv0BChkSBRCAbyAnEgIgExICIAASADgeQICGi6ACCiQSBRCAYyAnEgIgExICIAASAxCwOxIFELBrICg4CkCAyE1ItAMKJhIFEIBXICcSAiATEgIgABIDELAvEgUQsF8gKDgJQIDgh7gCSLQDChMSBRCASyAnEgIgExICIAASADgdChMSBRCAPyAnEgIgExICIAASADgxCisSEhBAICdAqI6HmAZIs5H0vOHQARIRCBMgE0CX6pYYSLmdlK3hvgUwHThFCiwSCCAnYgRURVJNEgUQkHcgExIGEKDOCiAAEgkQMGIFU0hJRlQ4MkCAhougAhgAQK6Ql/gqSN6HgPSgNQqaAQp7EhYIgDAQwIACIABAi4XYlhBIjYWAwN0NEhgIloCoARBAIABA9onorZAOSLGjuPeA+gcSDyAAQK2F3ANImYmEnuDcEBIQIABA4oPY0AFI6ZOcl6DwERIPIABAz+KPOEiDj5yXoL0SEhEgAEDwhbyXsAFI4Z3MjcDYEjgAGAIiCgjIARDIARgAIABA15HMrPAzSKap4MbwswgK8QEKGRIFEIADICcSAiATEgIgABIAOB1AgIaLoAIKHhIFEIAPICcSAiATEgIgABIAEgIgKDgJQIDITUi0AwogEgUQgBsgJxICIBMSAiAAEgASAiAoOApAgOCHuAJItAMKExIFEIAnICcSAiATEgIgABIAOB4KExIFEIAzICcSAiATEgIgABIAODIKKxISEEAgJ0CnjoeYBkizkfi80dABEhEIGyATQICqjvgESKWR0L2BdjAdOEYKLBIHICdiA0VTQxIGEJDAASATEgYQoIAKIAASCRAwYgVTSElGVDgxQICGi6ACGAFArZCX+CpI3of875A1CrgBCpgBEhUIARBAIABA2IOglcAMSM6DuI6g1QESGAiAMCAAQJn4lghIhI+AsKwBYgVTcGFjZRIYEEAgAECuhdwDSJmJiJ7Q3BBiBU1PVVNFEhcQQCAAQOGD2NABSOmToJeQ8BFiA1RBQhIXEEAgAEDQ4o84SIOPoJeQvRJiBE1FVEESFxBAIABA74W8l7ABSIWf0I2w2BJiAkZOOAAYAyIKCMgBEMgBGAAgAEDYkcys8DNIpqncxoC0CBiNICIFIKALKBwwHoIBAQNYSGADchMoMjgKQBRY4gmIAeIJYIQHcNAFePSHnKXxOA==). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board, in addition to my dpad changes.
 
 ## Features
 - Ergonomic
@@ -14,32 +12,25 @@ The cosmos generator configuration is saved in the URL, here is [my configuratio
     - Concave key well
     - Thumb clusters
     - Staggered to accommodate my hand/finger sizes
-- Wireless
-- Enhanced ShockBurst (ESB) protocol instead of BLE for enhanced responsiveness, courtesy of [zmk-feature-split-esb](https://github.com/badjeff/zmk-feature-split-esb).
 - Trackball mouse movement, with pointer acceleration for accuracy.
 - Displays
 - Hotswappable keys
-- Dongle with display ([custom display layout](https://github.com/dmhuisma/zmk-dongle-display))
 - Multiple potentiometers (one with directional clicking) for media controls, mouse scrolling, etc.
-- Dpad for cursor navigation or gaming (see [DPAD.md](DPAD.md))
+- [Custom DPAD](https://github.com/dmhuisma/1u_mx_dpad) on the left side for cursor navigation or gaming.
 
 ## Building
 
 The firmware is built by Github actions on every commit. It can also be built with a local install of ZMK with the following commands.
 
-> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib;[path to module]/nice-view-battery" -DSHIELD="dmhuisma_left nice_view_battery"
+> west build -p auto -d build/left -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/nice-view-battery" -DSHIELD="dmhuisma_left nice_view_battery"
 
-> west build -p auto -d build/right -b nice_nano_v2 -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to zmk-pmw3610-driver]/zmk-pmw3610-driver;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib;[path to module]/nice-view-battery" -DSHIELD="dmhuisma_right nice_view_battery"
-
-> west build -p auto -d build/dongle -b seeeduino_xiao_ble -S studio-rpc-usb-uart -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to module]/zmk-feature-split-esb;[path to module]/zmk-feature-split-esb/nrf;[path to module]/zmk-feature-split-esb/nrfxlib;[path to module]/zmk-pointing-acceleration-alpha;[path to module]/zmk-dongle-display" -DSHIELD="dmhuisma_dongle dongle_display"
+> west build -p auto -d build/right -b nice_nano_v2 -S studio-rpc-usb-uart -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-keyboard-zmk-module;[path to zmk-pmw3610-driver]/zmk-pmw3610-driver;[path to module]/zmk-pointing-acceleration-alpha;[path to module]/nice-view-battery" -DSHIELD="dmhuisma_right nice_view_battery"
 
 If building locally, the following external zmk modules are required on your machine:
 
 - [zmk-pmw3610-driver](https://github.com/badjeff/zmk-pmw3610-driver) (for the right side only)
-- [zmk-feature-split-esb](https://github.com/badjeff/zmk-feature-split-esb) (some extra setup steps required, refer to the repo)
-- [nice-view-battery](https://github.com/dmhuisma/nice-view-battery) (I forked this to get it to work with ESB, but it always shows that the keyboard is connected even if it is not)
+- [nice-view-battery](https://github.com/infely/nice-view-battery)
 - [zmk-pointing-acceleration-alpha](https://github.com/nuovotaka/zmk-pointing-acceleration-alpha)
-- [zmk-dongle-display](https://github.com/dmhuisma/zmk-dongle-display) (I forked this to achieve a custom layout)
 
 ## Keyscan Matrix
 
