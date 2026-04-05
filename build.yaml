@@ -20,12 +20,14 @@
 ---
 include:
 
-  - board: nice_nano_v2
-    shield: dmhuisma_left nice_view_battery
-    artifact_name: dmhuisma_left
-  - board: nice_nano_v2
-    shield: dmhuisma_right nice_view_battery
+  - board: nice_nano//zmk
+    shield: dmhuisma_left
+    artifact_name: dmhuisma_left nice_view_battery_peripheral
+  - board: nice_nano//zmk
+    shield: dmhuisma_right
     artifact_name: dmhuisma_right
+  - board: nrf52840_mdk_usb_dongle
+    shield: dmhuisma_dongle
     snippet: studio-rpc-usb-uart
-  - board: nice_nano_v2
+  - board: nice_nano//zmk
     shield: settings_reset

@@ -5,3 +5,5 @@ boards/shields/dmhuisma_test
 dongle.zip
 settings_erase_dongle.sh
 flash_dongle.sh
+
+.clangd

@@ -1,15 +1,16 @@
-#define ZMK_POINTING_DEFAULT_MOVE_VAL   2000
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/bt.h>
 
-#define DEFAULT         0
-#define GAME            1
-#define RAISE           2
-#define LOWER           3
-#define SNIPE           4
+#define QWERTY          0
+#define COLEMAK         1
+#define GAME            2
+#define MOUSE        	3
+#define RAISE           4
+#define LOWER        	5
 
 #define USE_HOMEROW_MODS
 
@@ -17,85 +18,108 @@
 //
 // qwerty homerow mods
 //
-// #define HR_A                 &hml LGUI A
-// #define HR_S                 &hml LALT S
-// #define HR_D                 &hml LCTL D
-// #define HR_F                 &hml LSHIFT F
-// #define HR_J                 &hmr RSHIFT J
-// #define HR_K                 &hmr RCTL K
-// #define HR_L                 &hmr RALT L
-// #define HR_SC                &hmr RGUI SEMICOLON
+#define HR_Q_A                  &hml LGUI A
+#define HR_Q_S                  &hml LALT S
+#define HR_Q_D                  &hml LCTL D
+#define HR_Q_F                  &hml LSHIFT F
+#define HR_Q_J                  &hmr RSHIFT J
+#define HR_Q_K                  &hmr RCTL K
+#define HR_Q_L                  &hmr RALT L
+#define HR_Q_SC                 &hmr RGUI SEMICOLON
 //
 // colemak-dh homerow mods
 //
-#define HR_A                    &hml LGUI A
-#define HR_R                    &hml LALT R
-#define HR_S                    &hml LCTL S
-#define HR_T                    &hml LSHIFT T
-#define HR_N                    &hmr RSHIFT N
-#define HR_E                    &hmr RCTL E
-#define HR_I                    &hmr RALT I
-#define HR_O                    &hmr RGUI O
+#define HR_C_A                  &hml LGUI A
+#define HR_C_R                  &hml LALT R
+#define HR_C_S                  &hml LCTL S
+#define HR_C_T                  &hml LSHIFT T
+#define HR_C_N                  &hmr RSHIFT N
+#define HR_C_E                  &hmr RCTL E
+#define HR_C_I                  &hmr RALT I
+#define HR_C_O                  &hmr RGUI O
 #else
 //
 // qwerty homerow mods
 //
-// #define HR_A                 &kp A
-// #define HR_S                 &kp S
-// #define HR_D                 &kp D
-// #define HR_F                 &kp F
-// #define HR_J                 &kp J
-// #define HR_K                 &kp K
-// #define HR_L                 &kp L
-// #define HR_SC                &kp SEMICOLON
+#define HR_Q_A                  &kp A
+#define HR_Q_S                  &kp S
+#define HR_Q_D                  &kp D
+#define HR_Q_F                  &kp F
+#define HR_Q_J                  &kp J
+#define HR_Q_K                  &kp K
+#define HR_Q_L                  &kp L
+#define HR_Q_SC                 &kp SEMICOLON
 //
 // colemak-dh homerow mods
 //
-#define HR_A                    &kp A
-#define HR_R                    &kp R
-#define HR_S                    &kp S
-#define HR_T                    &kp T
-#define HR_N                    &kp N
-#define HR_E                    &kp E
-#define HR_I                    &kp I
-#define HR_O                    &kp O
+#define HR_C_A                  &kp A
+#define HR_C_R                  &kp R
+#define HR_C_S                  &kp S
+#define HR_C_T                  &kp T
+#define HR_C_N                  &kp N
+#define HR_C_E                  &kp E
+#define HR_C_I                  &kp I
+#define HR_C_O                  &kp O
 #endif
 
 / {
     keymap {
         compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "Default";
+        qwerty_layer {
+            display-name = "Qwerty";
             bindings = <
-                &kp GRAVE       &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4    &kp NUMBER_5                                            &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0    &kp F12
-                &kp TAB         &kp Q           &kp W           &kp F           &kp P           &kp B                                                   &kp J           &kp L           &kp U           &kp Y           &kp SEMICOLON   &vscode_task
-                &kp BACKSLASH   HR_A            HR_R            HR_S            HR_T            &kp G                                                   &kp M           HR_N            HR_E            HR_I            HR_O            &kp SINGLE_QUOTE
-                &kp LCTRL       &kp Z           &kp X           &kp C           &kp D           &kp V                                                   &kp K           &kp H           &kp COMMA       &kp PERIOD      &kp SLASH       &kp ENTER
-                                                &kp MINUS       &kp EQUAL                                                                                                               &kp LBKT        &kp RBKT
+                &kp EQUAL       &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4    &kp NUMBER_5                                            &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0    &kp F12
+                &kp TAB         &kp Q           &kp W           &kp E           &kp R           &kp T                                                   &kp Y           &kp U           &kp I           &kp O           &kp P           &ai_autocomplete
+                &kp MINUS       HR_Q_A          HR_Q_S          HR_Q_D          HR_Q_F          &kp G                                                   &kp H           HR_Q_J          HR_Q_K          HR_Q_L          HR_Q_SC         &kp SINGLE_QUOTE
+                &kp LCTRL       &kp Z           &kp X           &kp C           &kp V           &kp B                                                   &kp N           &kp M           &kp COMMA       &kp PERIOD      &kp SLASH       &kp ENTER
+                                                &kp BACKSLASH   &kp GRAVE                                                                                                               &kp LBKT        &kp RBKT
 
-                                                                                &kp BACKSPACE                                                                           &kp SPACE
-                                                                                                &mkp LCLK       &kp RALT                &kp DELETE      &kp LSHIFT
-                                                                                                &ltm LOWER RCLK &kp ESCAPE              &kp LEFT_META   &mo RAISE
+																								&mo LOWER       &kp ESCAPE              &vscode_headersource &mo RAISE
+                                                                                &kp BACKSPACE                   &mkp LCLK               &kp DELETE      &none           &ht_qt RSHIFT SPACE
+                                                                                &kp HOME        &kp LMETA       &mkp RCLK    	        &kp RALT        &vscode_task    &kp END
 
                                                                                                 &kp UP_ARROW
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW
                                                                                                 &kp DOWN_ARROW
 
                                                                                                 &kp K_MUTE
-                                                                                &kp K_PREVIOUS  &none           &kp K_NEXT
+                                                                                &kp K_PREVIOUS                  &kp K_NEXT
                                                                                                 &kp K_PLAY_PAUSE
-                                            
-                                                                                                                                        &mkp MCLK
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
-        
-        // a layer of seldom used keys (in the context of gaming) to be remapped in software per game, so that the keyboard is still functional while playing games by switching back to the default layer
+
+        colemak_layer {
+            display-name = "Colemak";
+            bindings = <
+                &kp EQUAL       &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp NUMBER_4    &kp NUMBER_5                                            &kp NUMBER_6    &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0    &kp F12
+                &kp TAB         &kp Q           &kp W           &kp F           &kp P           &kp B                                                   &kp J           &kp L           &kp U           &kp Y           &kp SEMICOLON   &ai_autocomplete
+                &kp MINUS       HR_C_A          HR_C_R          HR_C_S          HR_C_T          &kp G                                                   &kp M           HR_C_N          HR_C_E          HR_C_I          HR_C_O          &kp SINGLE_QUOTE
+                &kp LCTRL       &kp Z           &kp X           &kp C           &kp D           &kp V                                                   &kp K           &kp H           &kp COMMA       &kp PERIOD      &kp SLASH       &kp ENTER
+                                                &kp BACKSLASH   &kp GRAVE                                                                                                               &kp LBKT        &kp RBKT
+
+																								&mo LOWER       &kp ESCAPE              &vscode_headersource &mo RAISE
+                                                                                &kp BACKSPACE                   &mkp LCLK               &kp DELETE      &none           &ht_qt RSHIFT SPACE
+                                                                                &kp HOME        &kp LMETA       &mkp RCLK    	        &kp RALT        &vscode_task    &kp END
+
+                                                                                                &kp UP_ARROW
+                                                                                &kp LEFT_ARROW                  &kp RIGHT_ARROW
+                                                                                                &kp DOWN_ARROW
+
+                                                                                                &kp K_MUTE
+                                                                                &kp K_PREVIOUS                  &kp K_NEXT
+                                                                                                &kp K_PLAY_PAUSE
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+        };
+
+		// a layer of seldom used keys (in the context of gaming) to be remapped in software per game, so that the keyboard is still functional while playing games by switching back to the default layer
         // I use input-remapper, and in gaming profiles I will set these keys by default to be ignored until set specifically by the game profile.
-        gaming_layer {
-            display-name = "Gaming";
+        game_layer {
+            display-name = "Game";
             bindings = <
                 &kp GRAVE       &kp F1          &kp F2          &kp F3          &kp F4          &kp RIGHT_ALT                                           &trans          &trans          &trans          &trans          &trans          &trans
                 &kp PAGE_UP     &kp F16         &kp F17         &kp F18         &kp F19         &kp F20                                                 &trans          &trans          &trans          &trans          &trans          &trans
@@ -103,166 +127,96 @@
                 &kp PAGE_DOWN   &kp F21         &kp F22         &kp F23         &kp F24         &kp LBKT                                                &trans          &mkp MB4        &mkp MB5        &trans          &trans          &trans
                                                 &kp RBKT        &kp BACKSLASH                                                                                                           &trans          &trans
 
-                                                                                &kp F5                                                                                  &trans
-                                                                                                &kp F6          &kp F7                  &trans          &trans
-                                                                                                &kp F8          &kp F9                  &trans          &mo RAISE
+																								&kp HOME        &kp END             	&trans  		&mo RAISE
+                                                                                &kp F5                         	&kp F6           		&trans          &trans          &trans
+                                                                                &kp F7       	&kp F8      	&kp F9              	&trans        	&trans   	    &trans
             
                                                                                                 &kp UP_ARROW
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW
                                                                                                 &kp DOWN_ARROW
 
                                                                                                 &trans
-                                                                                &trans          &trans          &trans
+                                                                                &trans                          &trans
                                                                                                 &trans
-                                            
-                                                                                                                                        &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
-                  
-        raise_layer {
+
+        mouse_layer {
+            display-name = "Mouse";
+            bindings = <
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &mkp LCLK       &mkp RCLK       &mkp MCLK       &trans          &trans
+                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &mkp MB4        &mkp MB5        &trans          &trans          &trans
+                                                &trans          &trans                                                                                                  &trans          &trans
+
+																								&tog MOUSE     	&trans             		&trans  		&trans
+                                                                                &trans                         	&trans           		&trans          &trans          &trans
+                                                                                &trans       	&trans      	&trans              	&trans        	&trans   		&trans
+            
+                                                                                                &trans
+                                                                                &trans                  		&trans
+                                                                                                &trans
+
+                                                                                                &trans
+                                                                                &trans                          &trans
+                                                                                                &trans
+            >;
+
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+		};
+
+		raise_layer {
             display-name = "Raise";
             bindings = <
                 &studio_unlock  &kp F1          &kp F2          &kp F3          &kp F4          &kp F5                                                  &kp F6          &kp F7          &kp F8          &kp F9          &kp F10         &kp F11
-                &trans          &trans          &kp AMPS        &kp ASTRK       &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &trans          &trans          &kp AMPS        &kp ASTRK       &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &out OUT_TOG
                 &trans          &trans          &kp DLLR        &kp PRCNT       &kp CARET       &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &kp EXCL        &kp AT          &kp HASH        &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                                                &trans          &trans                                                                                                  &trans          &trans
+                &trans          &trans          &kp EXCL        &kp AT          &kp HASH        &trans                                                  &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4   &bt BT_CLR
+                                                &trans          &trans                                                                                                                  &bt BT_PRV      &bt BT_NXT
 
-                                                                                &kp HOME                                                                            &trans
-                                                                                                &kp END         &trans                  &trans          &trans
-                                                                                                &tog GAME       &trans                  &trans          &trans
+                                                                                				&tog GAME       &none             		&trans  		&trans
+                                                                                &trans                          &trans           		&trans          &trans          &trans
+                                                                                &kp PAGE_UP     &trans       	&trans     	            &trans        	&trans   		&trans
             
                                                                                                 &kp UP_ARROW
-                                                                                &kp LA(LEFT)                    &kp LA(RIGHT)
+                                                                                &kp LA(LEFT)                 	&kp LA(RIGHT)
                                                                                                 &kp DOWN_ARROW
 
                                                                                                 &trans
-                                                                                &trans          &trans          &trans
+                                                                                &trans                          &trans
                                                                                                 &trans
-                                            
-                                                                                                                                        &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
-        lower_layer {
+		lower_layer {
             display-name = "Lower";
             bindings = <
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
+                &tog QWERTY     &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
                 &trans          &trans          &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &trans                                                  &trans          &kp LBKT        &kp RBKT        &trans          &trans          &trans
-                &trans          &trans          &kp NUMBER_4    &kp NUMBER_5    &kp NUMBER_6    &trans                                                  &trans          &kp LPAR        &kp RPAR        &trans          &trans          &trans
-                &trans          &trans          &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &trans                                                  &trans          &kp LBRC        &kp RBRC        &trans          &trans          &trans
+                &trans          &trans          &kp NUMBER_4    &kp NUMBER_5    &kp NUMBER_6    &kp NUMBER_0                                            &trans          &kp LPAR        &kp RPAR        &trans          &trans          &trans
+                &kp BACKSPACE   &trans          &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp ENTER                                               &trans          &kp LBRC        &kp RBRC        &trans          &trans          &trans
                                                 &trans          &kp NUMBER_0                                                                                                            &trans          &trans
 
-                                                                                &trans                                                                                  &trans
-                                                                                                &trans          &trans                  &trans          &trans
-                                                                                                &trans          &trans                  &trans          &trans
+																								&none      		&none             		&trans  		&trans
+                                                                                &trans                         	&trans           		&mkp MB4        &trans          &mkp MB5
+                                                                                &trans       	&trans      	&trans      	        &trans   		&trans          &kp PAGE_DOWN
             
+                                                                                                &trans
+                                                                                &trans                  		&trans
+                                                                                                &trans
+
                                                                                                 &trans
                                                                                 &trans                          &trans
                                                                                                 &trans
-
-                                                                                                &trans
-                                                                                &trans          &trans          &trans
-                                                                                                &trans
-                                            
-                                                                                                                                        &trans
             >;
 
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
-        };
-
-        snipe_layer {       // Layer 5
-            display-name = "Snipe";
-            bindings = <
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                &trans          &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
-                                                &trans          &trans                                                                                                                  &trans          &trans
-
-                                                                                &trans                                                                                  &trans
-                                                                                                &trans          &trans                  &trans          &trans
-                                                                                                &trans          &trans                  &trans          &trans
-            
-                                                                                                &trans
-                                                                                &trans                          &trans
-                                                                                                &trans
-
-                                                                                                &trans
-                                                                                &trans          &trans          &trans
-                                                                                                &trans
-                                            
-                                                                                                                                        &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &rot_msc>;
-        };
-    };
-
-    behaviors {
-
-        // custom behaviour for a layer tap feature that changes layers when both held and tapped
-        // momentary - toggle
-        mo_tog: behavior_mo_tog {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&tog>;
-        };
-
-        // encoder mouse scroll behaviour
-        rot_kp_pg: rotary_kp_page {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            tap-ms = <100>;
-            bindings = <&kp PAGE_DOWN>, <&kp PAGE_UP>;
-        };
-
-        // encoder mouse scroll behaviour
-        rot_msc: rotary_scroll {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            tap-ms = <20>;
-            bindings = <&msc MOVE_UP>, <&msc MOVE_DOWN>;
-        };
-
-        hml: home_row_mod_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <250>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = < 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 52 54 55 58 59 60 62 63 64 65 66 67 68 69 70 >;
-            hold-trigger-on-release;
-        };
-
-        hmr: home_row_mod_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            require-prior-idle-ms = <150>;
-            tapping-term-ms = <250>;
-            quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
-            hold-trigger-key-positions = < 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 42 43 44 45 46 47 50 51 53 54 56 57 60 61 71 >;
-            hold-trigger-on-release;
-        };
-
-        ltm: layer_tap_mouse {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            bindings = <&mo>, <&mkp>;
-            display-name = "Layer-Tap-Mouse";
-        };
+            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+		};
     };
 
     macros {
@@ -288,6 +242,51 @@
                 , <&macro_release &kp LALT>
                 , <&macro_release &kp O>
                 ;
+        };
+
+        ai_autocomplete: ai_autocomplete {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press &kp LCTRL>
+                , <&macro_press &kp Q>
+                , <&macro_release &kp LCTRL>
+                , <&macro_release &kp Q>
+                ;
+        };
+    };
+
+    behaviors {
+        hml: home_row_mod_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = < 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38 39 40 41 48 49 52 53 56 57 60 61 62 66 68 69 72 >;
+            hold-trigger-on-release;
+        };
+        hmr: home_row_mod_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = < 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 42 43 44 45 46 47 50 51 54 55 58 59 63 64 65 67 70 71 73 >;
+            hold-trigger-on-release;
+        };
+        ht_qt: hold_tap_quick_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            tapping-term-ms = <250>;
+            quick-tap-ms = <175>;
+            bindings = <&kp>, <&kp>;
         };
     };
 };
