@@ -1,36 +1,32 @@
-#include "dmhuisma.dtsi" // The shared dtsi file is included in the overlay
+#include "dmhuisma.dtsi"
 
 / {
 
     kscan0: kscan_composite {
+        wakeup-source;
         // matrix driver
         matrix {
             kscan = <&kscan1>;
         };
-        // direct GPIO driver for dpad and RKJXT1F42001 buttons
+        // direct GPIO driver for dpad and RKJXT1F42001buttons
         direct_left {
             kscan = <&kscan2>;
-            row-offset = <6>;
+            row-offset = <5>;
         };
     };
 
     kscan1: kscan1 {
         status = "okay";
-        row-gpios
-            = <&mcp_io 0 (GPIO_ACTIVE_LOW)>
-            , <&mcp_io 1 (GPIO_ACTIVE_LOW)>
-            , <&mcp_io 2 (GPIO_ACTIVE_LOW)>
-            , <&mcp_io 3 (GPIO_ACTIVE_LOW)>
-            , <&mcp_io 4 (GPIO_ACTIVE_LOW)>
-            , <&mcp_io 5 (GPIO_ACTIVE_LOW)>
-            ;
+
         col-gpios
-            = <&mcp_io 6  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&mcp_io 7  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&mcp_io 8  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&mcp_io 9  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&mcp_io 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&mcp_io 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            = <&shifter 0   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 1   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 2   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 3   (GPIO_ACTIVE_HIGH)>
+            , <&gpio1   6   (GPIO_ACTIVE_HIGH)>         // so we can wake from deep sleep
+            , <&shifter 5   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 6   (GPIO_ACTIVE_HIGH)>
+            , <&shifter 7   (GPIO_ACTIVE_HIGH)>
             ;
     };
 
@@ -40,17 +36,16 @@
         wakeup-source;
         status = "okay";
         input-gpios
-                // dpad
-            = <&gpio1 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio1 11 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-                // RKJXT1F42001 buttons
-            , <&mcp_io 12 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&mcp_io 13 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&mcp_io 14 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&mcp_io 15 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
-            , <&gpio0 17  (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            // dpad
+            = <&gpio0 11    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 4     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 10    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 9     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            // RKJXT1F42001
+            , <&gpio0 17    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio0 20    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 1     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
+            , <&gpio1 2     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             ;
     };
 
@@ -62,61 +57,56 @@
 };
 
 &pinctrl {
-
-    // I2C for MCP23017
-    i2c0_default: i2c0_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 24)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 22)>;
-        };
-    };
-    i2c0_sleep: i2c0_sleep {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 24)>,
-                    <NRF_PSEL(TWIM_SCL, 0, 22)>;
-            low-power-enable;
-        };
-    };
-
-    // SPI for the nice view display
+    // spi for the shift register
     spi1_default: spi1_default {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 11)>,
+            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
                     <NRF_PSEL(SPIM_MOSI, 1, 0)>;
         };
     };
     spi1_sleep: spi1_sleep {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 11)>,
+            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
                     <NRF_PSEL(SPIM_MOSI, 1, 0)>;
+            low-power-enable;
+        };
+    };
+
+    // spi for the nice view display
+    spi2_default: spi2_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 00)>;
+        };
+    };
+    spi2_sleep: spi2_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
+                    <NRF_PSEL(SPIM_MOSI, 1, 00)>;
             low-power-enable;
         };
     };
 };
 
-&i2c0 {
-    compatible = "nordic,nrf-twim";
+&spi1 {
     status = "okay";
-    clock-frequency = <I2C_BITRATE_FAST>;
-    wakeup-source;
+    cs-gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
 
-    mcp_io: mcp23017@20 {
-        compatible = "microchip,mcp230xx";
+    shifter: 595@0 {
+        compatible = "zmk,gpio-595";
         status = "okay";
         gpio-controller;
-        wakeup-source;
-        reg = <0x20>;
+        spi-max-frequency = <200000>;
+        reg = <0>;
         #gpio-cells = <2>;
-        ngpios = <16>;
-        int-gpios = <&gpio1 6 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
-        reset-gpios = <&gpio0 20 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>;
+        ngpios = <8>;
     };
 };
 
-nice_view_spi: &spi1 {
+nice_view_spi: &spi2 {
     compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
+    pinctrl-0 = <&spi2_default>;
+    pinctrl-1 = <&spi2_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
+    cs-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
 };
