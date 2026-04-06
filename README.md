@@ -4,7 +4,7 @@ This is my ZMK module for the split keyboard I generated with the [Cosmos keyboa
 
 ![Cosmos Keyboard Screenshot](assets/images/cosmos_keyboard_screenshot.jpg)
 
-The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:CpACCh8SBRCAbyAnEgIgExICIAASA4gBCjgeQICmi4AFSLMDCisSChCAYyAnQASIARQSAiATEgIgABIDELA7EggQsGsgKIgBDzgKQIC0XUgACikSCQgNEIBXICdIABICIBMSAiAAEgMQsC8SBRCwXyAoOAlAgNSG2AJIAAoWEggQgEsgJ4gBMhICIBMSAiAAEgA4HQocEggQgD8gJ4gBMhICIBMSAiAAEgIIASICKAA4MQo1EgggJ2IEVEVSTRIFEJB3IBMSBhCgzgogABIMEDBiBVNISUZUiAEUODJAktqKgAVIs4OAoAYKGRIVCJmAAhAgGF8gEUAASIDuooBdiAFGOEUYAEDohaCu8FVI2uiikAEKtgEKJhITCAEQQRgTIA5AAUiAgIz9A4gBARIKCIAgQAFQa4gBPDCBMDgTCjsSEwiBMBDBgAIYAEAASICAjP0DUHISFAgBEDEYBCAqQID4oA5IhJbWmPoHEgoQQUABUIUBiAEeMAE4AAosEgwQQSAOQAFIgICM/QMSBCAFQAESEhAxGBggJkCDgKAOSICW1pj6BzABOBQYAiIMCMgBEMgBGAAgACgAKAMwC0CHicyssDZIqY2AtpGzHAqcAgofEgUQgAMgJxICIBMSAiAAEgOIAQo4HUCApouABUizAwomEggQgA8gJ4gBFBICIBMSAiAAEgASCBCwayAoiAEPOAlAgLRdSAAKJBIHCA0QgBsgJxICIBMSAiAAEgASBRCwXyAoOApAgNSG2AJIAAoWEggQgCcgJ4gBMhICIBMSAiAAEgA4HgocEggQgDMgJ4gBMhICIBMSAiAAEgIIASICKAA4MgovEhEQQCATQKioUEjRh4C4L4gBPBIICBsgAECAhgowHThGQJ34htgFSP6P8KShtwEKNRIIICdiBFRFUk0SBRCQdyATEgYQoM4KIAASDBAwYgVTSElGVIgBFDgxQJHaioAFSLODgJgGGAFA54WgrvBVSNrmoogBGI2gAiICKBwwH4IBAQNICFhIYANoAHIWKGQwE0BaWOIJiAHiCWCEB3DQBZgBFHj0h5yl8Tg=). It also provides the BOM for this keyboard, I only added the MCP23017 GPIO expander board, in addition to my dpad changes.
+The cosmos generator configuration is saved in the URL, here is [my configuration](https://ryanis.cool/cosmos/beta#cm:CpMCCiISCBCAbyAniAEUEgIgExICIAASA4gBCjgeQICmi4AFSLMDCisSChCAYyAnQASIARQSAiATEgIgABIDELA7EggQsGsgKIgBDzgKQIC0XUgACikSCQgNEIBXICdIABICIBMSAiAAEgMQsC8SBRCwXyAoOAlAgNSG2AJIAAoWEggQgEsgJ4gBMhICIBMSAiAAEgA4HQocEggQgD8gJ4gBMhICIBMSAiAAEgIIASICKAA4MQo1EgggJ2IEVEVSTRIFEJB3IBMSBhCgzgogABIMEDBiBVNISUZUiAEUODJAktqKgAVIs4OAoAYKGRIVCJmAAhAgGF8gEUAASIDuooBdiAFGOEUYAEDohaCu8FVI2uiikAEKswEKJBITCAEQQRgTIA5AAEiAgIz9A4gBARIICIAgUGuIASMwgTA4Ewo3EhEIgTAQwYACGABIgICM/QNQchIUCAEQMRgEICpAgPigDkiEltaIvgcSCBBBUIUBiAEHMAE4AAovEg0QQSAMQIBQSICAjP0DEgYgDUAASAASEhAxGBggIkCDgKAOSICW1viJBzABOBQYAiIMCMgBEMgBGAAgACgAKAMwC0CHicyssDZIqY2AtpGzHAqfAgoiEggQgAMgJ4gBFBICIBMSAiAAEgOIAQo4HUCApouABUizAwomEggQgA8gJ4gBFBICIBMSAiAAEgASCBCwayAoiAEPOAlAgLRdSAAKJBIHCA0QgBsgJxICIBMSAiAAEgASBRCwXyAoOApAgNSG2AJIAAoWEggQgCcgJ4gBMhICIBMSAiAAEgA4HgocEggQgDMgJ4gBMhICIBMSAiAAEgIIASICKAA4MgovEhEQQCATQKioUEjRh4C4L4gBPBIICBsgAECAhgowHThGQJ34htgFSP6P8KShtwEKNRIIICdiBFRFUk0SBRCQdyATEgYQoM4KIAASDBAwYgVTSElGVIgBFDgxQJHaioAFSLODgJgGGAFA54WgrvBVSNrmoogBGI2gAiICKBwwH4IBAQNICFhIYANoAHIWKGQwE0BaWOIJiAHiCWCEB3DQBZgBFHj0h5yl8Tg=).
 
 ## Features
 - Ergonomic
@@ -24,12 +24,13 @@ The firmware is built by Github actions on every commit. It can also be built wi
 
 > west build -p auto -d build/left -b nice_nano//zmk -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-zmk;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay;/[path to module]/nice-view-peripheral" -DSHIELD="dmhuisma_left nice_view_peripheral"
 
-> west build -p auto -d build/right -b nice_nano//zmk -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-zmk;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay;" -DSHIELD="dmhuisma_right"
+> west build -p auto -d build/right -b nice_nano//zmk -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-zmk;[path to module]/zmk-driver-azoteq-iqs5xx;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay;" -DSHIELD="dmhuisma_right"
 
 > west build -p auto -d build/dongle -b nrf52840_mdk_usb_dongle -- -DZMK_EXTRA_MODULES="[path to module]/dmhuisma-zmk;/[path to module]/zmk-pointing-acceleration-alpha;[path to module]/zmk_arbitrary_split_data_channel;[path to module]/zmk-split-status-relay" -DSHIELD="dmhuisma_dongle"
 
 If building locally, the following external zmk modules are required on your machine:
 
+- [zmk-driver-azoteq-iqs5xx](https://github.com/AYM1607/zmk-driver-azoteq-iqs5xx)
 - [zmk-pointing-acceleration-alpha](https://github.com/nuovotaka/zmk-pointing-acceleration-alpha)
 - [zmk-arbitrary-split-data-channel](https://github.com/dmhuisma/zmk_arbitrary_split_data_channel)
 - [zmk-split-status-relay](https://github.com/dmhuisma/zmk-split-status-relay)
@@ -101,12 +102,12 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |                       |                                               |
 |-----------------------|-----------------------------------------------|
 |Battery+               ||
-|**[D1]** P0.06         ||
-|**[D0]** P0.08         ||
+|**[D1]** P0.06         |Trackpad reset|
+|**[D0]** P0.08         |Trackpad ready|
 |GND                    ||
 |GND                    ||
-|**[D2]** P0.17         ||
-|**[D3]** P0.20         ||
+|**[D2]** P0.17         |Trackpad SDA|
+|**[D3]** P0.20         |Trackpad SCL|
 |**[D4]** P0.22         ||
 |**[D5]** P0.24         |74HC595 SCK|
 |**[D6]** P1.00         |74HC595 MOSI|

@@ -6,6 +6,8 @@ manifest:
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
     - name: dmhuisma
       url-base: https://github.com/dmhuisma
+    - name: AYM1607
+      url-base: https://github.com/AYM1607
     - name: nuovotaka
       url-base: https://github.com/nuovotaka
   projects:
@@ -13,6 +15,9 @@ manifest:
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: zmk-driver-azoteq-iqs5xx
+      remote: AYM1607
+      revision: main
     - name: nice-view-battery-peripheral
       remote: dmhuisma
       revision: zmk_0.4

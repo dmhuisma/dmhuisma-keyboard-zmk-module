@@ -28,6 +28,11 @@
             , <&shifter 7   (GPIO_ACTIVE_HIGH)>
             ;
     };
+
+    tps43_input: tps43_input {
+        compatible = "zmk,input-listener";
+        device = <&tps43>;
+    };
 };
 
 &pinctrl {
@@ -45,6 +50,22 @@
             low-power-enable;
         };
     };
+
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 20)>;
+            // bias-pull-up; // External 4.7k resistors recommended
+        };
+    };
+
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 17)>,
+                    <NRF_PSEL(TWIM_SCL, 0, 20)>;
+            low-power-enable;
+        };
+    };
 };
 
 &spi1 {
@@ -59,5 +80,40 @@
         reg = <0>;
         #gpio-cells = <2>;
         ngpios = <8>;
+    };
+};
+
+&i2c0 {
+
+    status = "okay";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    tps43: iqs5xx@74 {
+        status = "okay";
+        compatible = "azoteq,iqs5xx";
+        reg = <0x74>;
+
+        reset-gpios = <&gpio0 6 GPIO_ACTIVE_LOW>;
+        rdy-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+
+        /*
+         * Potentially non-exhaustive list of configuration options.
+         * See: dts/bindings/input/azoteq,iqs5xx-common.yaml for a full list.
+         */
+        one-finger-tap;
+        press-and-hold;
+        press-and-hold-time = <250>;
+        two-finger-tap;
+
+        scroll;
+        natural-scroll-y;
+        natural-scroll-x;
+
+        bottom-beta = <5>;
+        stationary-threshold = <5>;
+
+        switch-xy;
     };
 };

@@ -5,12 +5,11 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors/input_gestures_accel.dtsi>
 
-#define QWERTY          0
-#define COLEMAK         1
+#define COLEMAK         0
+#define QWERTY          1
 #define GAME            2
-#define MOUSE        	3
-#define RAISE           4
-#define LOWER        	5
+#define RAISE           3
+#define LOWER        	4
 
 &kscan0 {
     compatible = "zmk,kscan-mock";
@@ -49,7 +48,6 @@
         status = "ok";
         device = <&trackpad_split>;
 
-        // <&zip_temp_layer MOUSE 1000>
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP)>, <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_xy_scaler 1 8>;
         
 		scroller {
