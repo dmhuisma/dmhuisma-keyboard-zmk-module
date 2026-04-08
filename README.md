@@ -104,7 +104,7 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |Battery+               ||
 |**[D1]** P0.06         |Trackpad reset|
 |**[D0]** P0.08         |Trackpad ready|
-|GND                    ||
+|GND                    |Trackpad GND|
 |GND                    ||
 |**[D2]** P0.17         |Trackpad SDA|
 |**[D3]** P0.20         |Trackpad SCL|
@@ -122,7 +122,7 @@ This keyboard uses the [nice!nano V2](https://nicekeyboards.com/nice-nano/) on e
 |Battery+               ||
 |GND                    |74HC595 GND, 74HC595 OE|
 |Reset                  ||
-|3.3V Vcc               |74HC595 Vcc|
+|3.3V Vcc               |74HC595 Vcc, Trackpad Vcc|
 |**[D21]** P0.31 (ADC)  |Row 1|
 |**[D20]** P0.29 (ADC)  |Row 2|
 |**[D19]** P0.02 (ADC)  |Row 3|
