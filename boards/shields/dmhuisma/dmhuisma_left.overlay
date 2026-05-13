@@ -42,7 +42,6 @@
             , <&gpio0 10    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 9     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             // RKJXT1F42001
-            , <&gpio0 17    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio0 20    (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio1 1     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
             , <&gpio1 2     (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>
@@ -75,14 +74,14 @@
     // spi for the nice view display
     spi2_default: spi2_default {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
-                    <NRF_PSEL(SPIM_MOSI, 1, 00)>;
+            psels = <NRF_PSEL(SPIM_SCK, 0, 22)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 17)>;
         };
     };
     spi2_sleep: spi2_sleep {
         group1 {
-            psels = <NRF_PSEL(SPIM_SCK, 0, 24)>,
-                    <NRF_PSEL(SPIM_MOSI, 1, 00)>;
+            psels = <NRF_PSEL(SPIM_SCK, 0, 22)>,
+                    <NRF_PSEL(SPIM_MOSI, 0, 17)>;
             low-power-enable;
         };
     };
@@ -108,5 +107,5 @@ nice_view_spi: &spi2 {
     pinctrl-0 = <&spi2_default>;
     pinctrl-1 = <&spi2_sleep>;
     pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;
+    cs-gpios = <&gpio1 11 GPIO_ACTIVE_HIGH>;
 };

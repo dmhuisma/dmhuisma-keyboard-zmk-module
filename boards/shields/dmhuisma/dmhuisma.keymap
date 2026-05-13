@@ -74,15 +74,14 @@
                 &kp MINUS       &kp Z           &kp X           &kp C           &kp D           &kp V                                                   &kp K           &kp H           &kp COMMA       &kp PERIOD      &kp SLASH       &none
                                                 &kp BACKSLASH   &kp GRAVE                                                                                                               &kp LBKT        &kp RBKT
 
-																								&kp LCTRL       &mo LOWER               &mo RAISE       &kp RCTRL
-                                                                                &kp BACKSPACE                   &kp DELETE              &kp PAGE_UP     &ht_qt RSHIFT SPACE &kp ENTER
+																								&kp LCTRL       &mo LOWER               &mo RAISE       &kp RSHIFT
+                                                                                &kp BACKSPACE                   &kp DELETE              &kp PAGE_UP     &kp ENTER       &kp SPACE
                                                                                 &kp LMETA       &kp HOME        &kp END    	            &kp PAGE_DOWN   &vscode_task    &kp RALT
 
                                                                                                 &kp UP_ARROW
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW
                                                                                                 &kp DOWN_ARROW
 
-                                                                                                &kp K_MUTE
                                                                                 &kp K_PREVIOUS                  &kp K_NEXT
                                                                                                 &kp K_PLAY_PAUSE
             >;
@@ -107,7 +106,6 @@
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW
                                                                                                 &kp DOWN_ARROW
 
-                                                                                                &kp K_MUTE
                                                                                 &kp K_PREVIOUS                  &kp K_NEXT
                                                                                                 &kp K_PLAY_PAUSE
             >;
@@ -134,7 +132,6 @@
                                                                                 &kp LEFT_ARROW                  &kp RIGHT_ARROW
                                                                                                 &kp DOWN_ARROW
 
-                                                                                                &trans
                                                                                 &trans                          &trans
                                                                                                 &trans
             >;
@@ -159,7 +156,6 @@
                                                                                 &kp LA(LEFT)                 	&kp LA(RIGHT)
                                                                                                 &kp DOWN_ARROW
 
-                                                                                                &trans
                                                                                 &trans                          &trans
                                                                                                 &trans
             >;
@@ -172,19 +168,18 @@
             bindings = <
                 &tog QWERTY     &trans          &trans          &trans          &trans          &trans                                                  &trans          &trans          &trans          &trans          &trans          &trans
                 &trans          &trans          &kp NUMBER_7    &kp NUMBER_8    &kp NUMBER_9    &trans                                                  &trans          &kp LBKT        &kp RBKT        &trans          &trans          &trans
-                &trans          &trans          &kp NUMBER_4    &kp NUMBER_5    &kp NUMBER_6    &kp NUMBER_0                                            &trans          &kp LPAR        &kp RPAR        &trans          &trans          &trans
+                &kp BACKSPACE   &kp NUMBER_0    &kp NUMBER_4    &kp NUMBER_5    &kp NUMBER_6    &kp NUMBER_0                                            &trans          &kp LPAR        &kp RPAR        &trans          &trans          &trans
                 &kp BACKSPACE   &trans          &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp ENTER                                               &trans          &kp LBRC        &kp RBRC        &trans          &trans          &trans
                                                 &trans          &kp NUMBER_0                                                                                                            &trans          &trans
 
 																								&none      		&none             		&trans  		&trans
                                                                                 &trans                         	&trans           		&mkp MB4        &trans          &mkp MB5
                                                                                 &trans       	&trans      	&trans      	        &trans   		&trans          &kp PAGE_DOWN
-            
+
                                                                                                 &trans
                                                                                 &trans                  		&trans
                                                                                                 &trans
 
-                                                                                                &trans
                                                                                 &trans                          &trans
                                                                                                 &trans
             >;
