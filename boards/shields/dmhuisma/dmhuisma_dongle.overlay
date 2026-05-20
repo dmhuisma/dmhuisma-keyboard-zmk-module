@@ -48,6 +48,6 @@
         status = "ok";
         device = <&trackpad_split>;
 
-        input-processors = <&zip_scroll_scaler 16 1>, <&pointer_accel>;
+        input-processors = <&zip_scroll_scaler 16 1>;
     };
 };

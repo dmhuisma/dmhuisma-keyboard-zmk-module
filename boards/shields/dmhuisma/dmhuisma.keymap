@@ -61,6 +61,8 @@
 #define HR_C_O                  &kp O
 #endif
 
+#define MO_TOG(layer) &mo_tog layer layer   // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -74,7 +76,7 @@
                 &kp MINUS       &kp Z           &kp X           &kp C           &kp D           &kp V                                                   &kp K           &kp H           &kp COMMA       &kp PERIOD      &kp SLASH       &vscode_headersource
                                                 &kp BACKSLASH   &kp GRAVE                                                                                                               &kp LBKT        &kp RBKT
 
-																								&kp LCTRL       &mo LOWER               &mo RAISE       &kp RSHIFT
+																								&kp LCTRL       MO_TOG(LOWER)           MO_TOG(RAISE)   &kp RSHIFT
                                                                                 &kp BACKSPACE                   &kp DELETE              &kp PAGE_UP     &kp ENTER       &kp SPACE
                                                                                 &kp LMETA       &kp HOME        &kp END    	            &kp PAGE_DOWN   &vscode_task    &kp RALT
 
@@ -98,7 +100,7 @@
                 &kp MINUS       &kp Z           &kp X           &kp C           &kp V           &kp B                                                   &kp N           &kp M           &kp COMMA       &kp PERIOD      &kp SLASH       &vscode_headersource
                                                 &kp BACKSLASH   &kp GRAVE                                                                                                               &kp LBKT        &kp RBKT
 
-																								&kp LCTRL       &mo LOWER               &mo RAISE       &kp RSHIFT
+																								&kp LCTRL       MO_TOG(LOWER)           MO_TOG(RAISE)   &kp RSHIFT
                                                                                 &kp BACKSPACE                   &kp DELETE              &kp PAGE_UP     &kp ENTER       &kp ENTER
                                                                                 &kp LMETA       &kp HOME        &kp END    	            &kp PAGE_DOWN   &vscode_task    &kp RALT
 
@@ -148,7 +150,7 @@
                 &trans          &trans          &kp EXCL        &kp AT          &kp HASH        &trans                                                  &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4   &bt BT_CLR
                                                 &trans          &trans                                                                                                                  &bt BT_PRV      &bt BT_NXT
 
-                                                                                				&none           &tog GAME             	&trans  		&trans
+                                                                                				&none           &tog GAME             	&tog RAISE      &trans
                                                                                 &trans                          &trans           		&trans          &trans          &trans
                                                                                 &kp PAGE_UP     &trans       	&trans     	            &trans        	&trans   		&trans
             
@@ -172,7 +174,7 @@
                 &kp BACKSPACE   &trans          &kp NUMBER_1    &kp NUMBER_2    &kp NUMBER_3    &kp ENTER                                               &trans          &kp LBRC        &kp RBRC        &trans          &trans          &trans
                                                 &trans          &kp NUMBER_0                                                                                                            &trans          &trans
 
-																								&none      		&none             		&trans  		&trans
+																								&none      		&tog LOWER             	&trans  		&trans
                                                                                 &trans                         	&trans           		&mkp MB4        &trans          &mkp MB5
                                                                                 &trans       	&trans      	&trans      	        &trans   		&trans          &kp PAGE_DOWN
 
@@ -256,6 +258,13 @@
             tapping-term-ms = <250>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&kp>;
+        };
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <150>;
+            bindings = <&mo>, <&tog>;
         };
     };
 };
